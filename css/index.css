@@ -1,0 +1,92 @@
+
+/*# sourceMappingURL=style1.css.map */
+
+body,
+body::before,
+body::after {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 100;
+    line-height: 1.7;
+    text-align: center;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+main {
+    background: #2469cc;
+}
+
+aside {
+    border: 4px dashed aliceblue;
+}
+
+section {
+    display: grid;
+    grid-template-areas: "a b c";
+    background-color: #2469cc;
+}
+
+footer {
+    height: 40vh;
+    background-color: #cc2475;
+}
+
+.header__title {
+    background-color: #cc8624;
+}
+
+.carousel {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: dodgerblue;
+    border: 4px solid black;
+}
+
+.carousel>img {
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 4px dashed aliceblue;
+}
+
+header {
+    border: 2px dashed lime;
+}
+
+.layer:hover {
+    /* opacity: 0.5; */
+    /* animation: addColor ; */
+    mask-position: 100% 0%;
+}
+
+@keyframes addColor {
+    0% {
+        mask-position: 0% 0% ;
+    }
+    100% {
+        mask-position: 100% 0%;
+    }
+}
+
+.layer {
+    position: absolute;
+    mask-image: url("../mask/mask.png");
+    mask-size: cover;
+    mask-position: 0% 0% ;
+    transition: mask-position 500ms steps(5);
+}
+
+.education {}
+
+.experience {}
+
+.competence {}
+
+.info {}

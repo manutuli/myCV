@@ -1,1 +1,27 @@
+
 my resume april 2023 :
+
+ Animation effect : 
+
+
+Kevin Powell :
+//www.youtube.com/watch?v=dldpud1PuL8&list=TLPQMDYwNDIwMjNiSvvHe8d83g&index=2
+
+ -> layers
+
+
+{
+ mask-image : url(layers) ;
+ mask-mode : ;
+ mask-size : ;
+ mask-position :   ;
+}
+
+{
+ position : absolute;
+ inset : 0;
+ transition : ; 
+ animation : steps;
+}
+
+ intersectionObserver api
