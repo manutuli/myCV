@@ -1,5 +1,12 @@
 
 /*# sourceMappingURL=style1.css.map */
+:root {
+    --first-color: #2469cc;
+    --second-color: #cc2475;
+    --third-color: #cc8624;
+    --light-color : whitesmoke;
+    --dark-color : #223;
+}
 
 body,
 body::before,
@@ -10,6 +17,8 @@ body::after {
     line-height: 1.7;
     text-align: center;
     margin: 0;
+    color: aliceblue;
+    background: #223;
 }
 
 ul {
@@ -17,8 +26,8 @@ ul {
 }
 
 main {
-    background: #2469cc;
-}
+    background: var(--dark-color);
+} 
 
 aside {
     border: 4px dashed aliceblue;
@@ -27,30 +36,31 @@ aside {
 section {
     display: grid;
     grid-template-areas: "a b c";
-    background-color: #2469cc;
 }
 
 footer {
     height: 40vh;
-    background-color: #cc2475;
 }
 
 .header__title {
-    background-color: #cc8624;
 }
 
-.carousel {
+svg {
+    width: 30px;
+    color: var(--light-color);
+}
+
+.bumper {
     height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background: 
-    linear-gradient( to bottom, #000, blueviolet 50%, violet 90%, #223 75% );
-    /* background-color: dodgerblue; */
-    border: 4px solid black;
+    linear-gradient( to bottom, #223, blueviolet 50%, violet 90%, violet 75% );
+    border-bottom: thick solid black;
 }
 
-.carousel>img {
+.bumper > img {
     height: 300px;
     width: 300px;
     border-radius: 50%;
@@ -59,12 +69,7 @@ footer {
 }
 
 header {
-    border: 2px dashed lime;
-}
-
-.btm-layer:hover {
-    /* animation: addColor ; */
-    mask-position: 100% 0%;
+    /* border: 2px dashed lime; */
 }
 
 @keyframes addColor {
@@ -78,15 +83,22 @@ header {
 
 .btm-layer {
     position: absolute;
-    border: thick solid aliceblue;
     mask-image: url("../mask/mask.png");
     mask-size: cover;
     mask-position: 0% 0%;
-    transition: mask-position 150ms steps(5) 0.2s;
+    transition: mask-position 600ms steps(5) 0.3s;
+    border: thick solid var(--light-color);
+}
+
+ .show {
+    /* animation: addColor ; */
+    mask-position: 100% 0%;
+    box-shadow: 12px 12px 12px var(--light-color);    
 }
 
 .up-layer {
     mix-blend-mode: luminosity;
+    opacity: 0.6;
 }
 
 .education {}
