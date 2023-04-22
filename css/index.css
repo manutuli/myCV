@@ -188,13 +188,13 @@ svg {
 }
 
 /* button */
-.bumper > .btn:hover {
+.bumper:hover > .btn {
     background: var(--second-color);
     animation: 2s linear 0s infinite running glisten;
 }
 .bumper > .btn {
     position: relative;
-    top: 350px;
+    top: 300px;
     right: 150px;
     height: fit-content;
     padding: 0 50px;
@@ -207,7 +207,7 @@ svg {
     border-right: 4px solid var(--second-color);
     cursor: pointer;
 }
-.btn:hover > * {
+.bumper:hover > .btn >* {
     filter: blur(1px);
     transition: filter 0.5s;
 }
@@ -241,7 +241,7 @@ svg {
     opacity: 0;
 }
 .show {
-    animation: 1s steps(5) 0s running brush ;
+    animation: 0.8s steps(5) 0s running brush ;
     mask-position: 100% 0%;
 }
 
