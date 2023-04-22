@@ -1,9 +1,9 @@
-
+ 
 :root {
     --first-color: #2469cc;
     --second-color: #cc2475;
-    --third-color: #cc8624;
-    --light-color : whitesmoke;
+    --third-color: blueviolet;
+    --light-color : aliceblue;
     --dark-color : #223;
 }
 body,
@@ -12,7 +12,7 @@ body::after {
     font-family: "Roboto", sans-serif;
     font-size: 0.8rem;
     font-weight: 100;
-    line-height: 1.7;
+    line-height: 1.6;
     text-align: center;
     margin: 0;
     color: var(--light-color);
@@ -21,36 +21,121 @@ body::after {
 body > * {
     overflow: hidden;
 }
-ul {
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    list-style: none;
-    padding: 2%;
-    /* border: 3px dashed #2469cc; */
-}
-li {
-    padding: 2%;
-    /* border: 3px solid #cc2475; */
-}
-li > div {
-    max-width: 150px;
-}
-li > div > p {
-    text-align: start;
-}
 main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     background: var(--dark-color);
 } 
 aside {
-    padding: 2%;
-    /* border: 4px dashed aliceblue; */
+    opacity: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: 300px;
+    width: 900px;
+    max-width: 80%;
+    margin-bottom: 50px;
 }
-
 footer {
+    display: flex;
+    justify-content: center;
+    align-items: start;
     height: 40vh;
 }
-.first__title {
+a {
+    text-decoration: none;
+    color: var(--light-color);
+}
+a:hover > div {
+    color: #223;
+    border-radius: 5px;
+    background-color: var(--light-color);
+}
+
+/* blocs */
+.experience > .container > .block > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 1px dashed var(--light-color);
+}
+.experience > .container {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    border-bottom: 1px dashed var(--light-color);
+}
+.block > h3 {
+    text-align: center;
+    width: 100%;
+    min-height: 60px;
+    /* border: 1px dashed #cc2475; */
+}
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-width: 300px;
+    width: 100%;
+    /* border: 3px solid var(--third-color); */
+}
+.block {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 400px;
+    /* border-top: 1px solid var(--light-color); */
+}
+.block > .items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    padding: 0 12px;
+}
+.skills > .container > .block {
+    border-top: 1px dashed var(--light-color);
+    margin-bottom: 50px;
+}
+.skills > .container,
+footer > .container {
+    max-width: 400px; 
+}
+.education > .container{
+    border-top: 1px dashed var(--light-color);
+    max-width: 400px;
+}
+
+/* texts */
+.container > p {
+    font: 900;
+    font-size: large;
+}
+.education > .container > .block > .text{
+    text-align: center;
+}
+.experience > .container > .block > .text {
+    border-top: 1px solid var(--light-color);
+    max-width: 150px;
+}
+footer > .container > .block > .text > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top: 1px dashed var(--light-color);
+}
+.text {
+    text-align: start;
+}
+.reveal {
+    opacity: 1;
+    transition: 1s opacity;
 }
 
 /* icons */
@@ -61,6 +146,14 @@ svg {
 .icons__small > svg {
     max-width: 25px;
 }
+.icons:hover, .icons__small:hover {
+    border-radius: 0px;
+    transition: 0.5s ease-out border-radius;
+}
+.icons:not(:hover), .icons__small:not(:hover) {
+    border-radius: 25px;
+    transition: 0.5s ease-in-out border-radius;
+}
 .icons, .icons__small {
     display: flex;
     align-items: center;
@@ -68,9 +161,9 @@ svg {
     width: 50px;
     height: 50px;
     background-color: var(--light-color);
-    border-radius: 50%;
+    border-radius: 25px;
+    cursor: pointer;
 }
-
 .icons > p {
     color: var(--first-color);
     font-size: large;
@@ -79,56 +172,81 @@ svg {
 
 /* bumper */
 .bumper {
-    height: 85vh;
+    height: 100vh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     background: 
-    linear-gradient( to bottom, #223, blueviolet 50%, violet 90%, violet 75% );
-    border-bottom: thick solid black;
+    linear-gradient( 
+        to bottom, 
+        #223,
+        blueviolet 50%, 
+        violet 90%, 
+        violet 75%
+         );
 }
 
 /* button */
+.bumper > .btn:hover {
+    background: var(--second-color);
+    animation: 2s linear 0s infinite running glisten;
+}
 .bumper > .btn {
-    position: absolute;
-    top: 70%;
-    width: 250px;
-    height: 40px;
-    background: linear-gradient(30deg, var(--third-color), var(--second-color));
-    border-radius: 15px;
-    border-bottom: 3px solid var(--dark-color);
-    border-top: 3px solid var(--light-color);
-    border-left: 3px solid transparent;
-    border-right: 3px solid transparent;
+    position: relative;
+    top: 350px;
+    right: 150px;
+    height: fit-content;
+    padding: 0 50px;
+    background: linear-gradient(160deg, var(--third-color), var(--second-color));
+    border-radius: 6px;
+    color: violet;
+    border-bottom: 4px solid var(--second-color);
+    border-top: 4px solid var(--light-color);
+    border-left: 4px solid var(--light-color);
+    border-right: 4px solid var(--second-color);
+    cursor: pointer;
+}
+.btn:hover > * {
+    filter: blur(1px);
+    transition: filter 0.5s;
+}
+.btn:not(:hover) > * {
+    transition: filter 2s;
+}
+.btn > * {
+    position: relative;
+    top: -5px;
+    font-size: large;
+    font-weight: 600;
+    width: 100px;
+    margin: 10px 0 0 0;
+    filter: blur(1.5rem);
 }
 .bumper > img {
     height: 300px;
     width: 300px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 12px 12px 12px blueviolet;
+    mix-blend-mode: luminosity;
 }
-
-/* animation */
 .btm-layer {
     position: absolute;
     mask-image: url("../mask/mask.png");
     mask-size: cover;
     mask-position: 0% 0%;
-    opacity: 0.9;
-    border: thick solid var(--light-color);
-    transition: mask-position 600ms steps(5) 0.5s;
-    mix-blend-mode: luminosity;
+    opacity: 0.7;
 }
 .up-layer {
-    opacity: 0.2;
+    opacity: 0;
 }
 .show {
+    animation: 1s steps(5) 0s running brush ;
     mask-position: 100% 0%;
-    /* animation: addColor ; */
-    /* box-shadow: 12px 12px 12px var(--light-color);*/
 }
-@keyframes addColor {
+
+/* animations */
+@keyframes brush {
     0% {
         mask-position: 0% 0% ;
     }
@@ -136,11 +254,14 @@ svg {
         mask-position: 100% 0%;
     }
 }
-
-.education {}
-
-.experience {}
-
-.competence {}
-
-.info {}
+@keyframes glisten {
+    0% {
+        box-shadow: inset 0.5em 0.5em 0.2rem var(--second-color);
+    }
+    70% {
+        box-shadow: inset 1em 1.5em 2rem var(--third-color);
+    }
+    100% {
+        box-shadow: inset 0.5em 0.5em 0.2rem var(--second-color);
+    }
+}
