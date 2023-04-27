@@ -1,18 +1,18 @@
- 
+
+/* global */
 :root {
-    --first-color: #2469cc;
-    --second-color: #cc2475;
-    --third-color: blueviolet;
-    --light-color : aliceblue;
-    --dark-color : #223;
+   --first-color: #2469cc;
+   --second-color: #cc2475;
+   --third-color: blueviolet;
+   --light-color : aliceblue;
+   --dark-color : #223;
 }
 body,
 body::before,
 body::after {
     font-family: "Roboto", sans-serif;
-    font-size: 0.8rem;
-    font-weight: 100;
-    line-height: 1.6;
+    font-size: 1.1rem;
+    line-height: 1.6em;
     text-align: center;
     margin: 0;
     color: var(--light-color);
@@ -21,29 +21,35 @@ body::after {
 body > * {
     overflow: hidden;
 }
-main {
+/* * {outline: 1px solid var(--first-color);} */
+
+/* semantics */
+main,
+aside,
+aside div,
+footer div {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+}
+main {
     background: var(--dark-color);
-} 
+}
 aside {
     opacity: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    min-width: 300px;
-    width: 900px;
-    max-width: 80%;
-    margin-bottom: 50px;
+    width: 100%;
+    margin: 20vh 0;
 }
 footer {
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    height: 40vh;
+    height: 80vh;
+}
+p {
+    font: 900;
+    font-size: large;
+}
+h3 {
+    text-align: center;
 }
 a {
     text-decoration: none;
@@ -56,86 +62,103 @@ a:hover > div {
 }
 
 /* blocs */
-.experience > .container > .block > * {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    border-top: 1px dashed var(--light-color);
-}
-.experience > .container {
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    border-bottom: 1px dashed var(--light-color);
-}
-.block > h3 {
-    text-align: center;
-    width: 100%;
-    min-height: 60px;
-    /* border: 1px dashed #cc2475; */
-}
 .container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    min-width: 300px;
-    width: 100%;
-    /* border: 3px solid var(--third-color); */
+    min-width: 80%;
+    margin: 5px;
+}
+.text > p {
+    max-width: 80%;
+    font-weight: lighter;
+    font-size: medium;
+    margin: 5px;
 }
 .block {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 400px;
-    /* border-top: 1px solid var(--light-color); */
-}
-.block > .items {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: fit-content;
-    padding: 0 12px;
-}
-.skills > .container > .block {
-    border-top: 1px dashed var(--light-color);
-    margin-bottom: 50px;
-}
-.skills > .container,
-footer > .container {
-    max-width: 400px; 
-}
-.education > .container{
-    border-top: 1px dashed var(--light-color);
-    max-width: 400px;
-}
-
-/* texts */
-.container > p {
-    font: 900;
-    font-size: large;
-}
-.education > .container > .block > .text{
-    text-align: center;
-}
-.experience > .container > .block > .text {
-    border-top: 1px solid var(--light-color);
-    max-width: 150px;
-}
-footer > .container > .block > .text > * {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-top: 1px dashed var(--light-color);
+    margin: 5px;
 }
 .text {
-    text-align: start;
+    text-align: center;
+    margin: 5px;
 }
+footer > .container {}
 .reveal {
     opacity: 1;
     transition: 1s opacity;
+}
+
+/* presentation */
+.presentation {}
+.container--presentation {}
+.block--presentation {}
+.text--presentation > * {
+    border-bottom: 1px dashed var(--light-color);
+}
+
+/* experience */
+.container--experience {
+    flex-direction: row;
+    align-items: stretch;
+} 
+.block--experience {
+    display: flex;
+    justify-content: stretch;
+    max-width:30%;
+    padding: 20px 0;
+    border-top: 1px dashed var(--light-color);
+    border-bottom: 1px dashed var(--light-color);
+}
+.block--experience > h3 {
+    min-height: 60px;
+}
+.text--experience {
+    border-top: 1px dashed var(--light-color);
+    max-width: 200px;
+}
+.text--experience > p {
+    width: 100%;
+    text-align: start;
+}
+
+/* skills */
+.container--skills {}
+.block--skills {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 400px;
+    width: 100%;
+}
+.text--skills > p {
+    font-size: 2rem;
+}
+
+/* education */
+.container--education {}
+aside > p {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.block--education {
+    min-width: 300px;
+}
+.text--education {
+    border-top: 1px dashed var(--light-color);
+    margin-bottom: 30px;
+}
+.text--education > p {
+    min-width: 200px;
+}
+
+/* footer */
+.container--footer {
+}
+.block--footer {
+    margin: 50px;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 400px;
+    width: 100%;
+}
+.text--footer > p {
+    font-size: 2rem;
 }
 
 /* icons */
@@ -143,11 +166,21 @@ svg {
     fill: #2469cc;
     max-width: 30px;
 }
+.items {
+    border-top: 1px dashed var(--light-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    padding: 0 12px;
+    max-width: 90px;
+}
 .icons__small > svg {
     max-width: 25px;
 }
-.icons:hover, .icons__small:hover {
-    border-radius: 0px;
+.items:hover .icons__small,
+.items:hover .icons {
+    border-radius: 3px;
     transition: 0.5s ease-out border-radius;
 }
 .icons:not(:hover), .icons__small:not(:hover) {
@@ -172,11 +205,11 @@ svg {
 
 /* bumper */
 .bumper {
-    height: 100vh;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    width: 100%;
     background: 
     linear-gradient( 
         to bottom, 
@@ -194,11 +227,15 @@ svg {
 }
 .bumper > .btn {
     position: relative;
-    top: 300px;
+    top: 40%;
     right: 150px;
-    height: fit-content;
+    outline: 2px solid var(--second-color);
     padding: 0 50px;
-    background: linear-gradient(160deg, var(--third-color), var(--second-color));
+    background: linear-gradient(
+        160deg, 
+        var(--third-color), 
+        var(--second-color)
+        );
     border-radius: 6px;
     color: violet;
     border-bottom: 4px solid var(--second-color);
@@ -214,13 +251,10 @@ svg {
 .btn:not(:hover) > * {
     transition: filter 2s;
 }
-.btn > * {
-    position: relative;
-    top: -5px;
+.btn > p {
     font-size: large;
     font-weight: 600;
-    width: 100px;
-    margin: 10px 0 0 0;
+    margin: 10px 0 10px 0;
     filter: blur(1.5rem);
 }
 .bumper > img {

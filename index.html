@@ -15,55 +15,65 @@
                 <img class="up-layer" src="https://picsum.photos/id/20/500?grayscale&blur=2" alt="random image">
                 <img class="btm-layer" src="https://picsum.photos/id/20/500" alt="random image">
                 <div class="btn">
-                    <h2 class="first__title">Welcome in</h2>
+                    <p class="first__title">Hello</p>
                 </div>
             </div>
         </header>
-        
+
         <main>
-            <h1>Web Developper</h1>
-            <p>Here are some of my projects</p>
+            <aside class="presentation">
+                <div class="container container--presentation">
+                    <div class="block block--presentation">
+                        <div class="text text--presentation">
+                            <p>My name is</p>
+                            <h2>Emmanuel Tulinayo</h2>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <aside>
+                <h1>Web Developper</h1>
+                <p>Lille, France.</p>
+            </aside>
+            
             <aside class="experience">
-                <div class="container">
-                    <div class="block">
-                        <h3>React web Application.</h3>
-                        <div class="text">
+                <p>Awesome Projects.</p>
+                <div class="container container--experience">
+                    <div class="block block--experience">
+                        <h3>React web Applications</h3>
+                        <div class="text text--experience">
                             <p>Configure navigation with "react-router-dom".</p>
                             <p>Create user interface with functionnal components.</p>
                             <p>Manage application states.</p>
                         </div>
                     </div>
-                    <div class="block">
-                        <h3>Secure API.</h3>
-                        <div class="text">
-                            <p>Implement CRUD operations </p>
+                    <div class="block block--experience">
+                        <h3>Secure API</h3>
+                        <div class="text text--experience">
+                            <p>Implement CRUD operations.</p>
                             <p>Add JWT authentication.</p>
                             <p>Encrypt users passwords.</p>
-                            <p>Manage file uploads and file suppressions.</p>
+                            <p>Manage file uploads and file deletions.</p>
                         </div>
                     </div>
-                    <div class="block">
-                        <h3>E-commerce Website.</h3>
-                        <div class="text">
+                    <div class="block block--experience">
+                        <h3>E-commerce Websites</h3>
+                        <div class="text text--experience">
                             <p>Manage asynchronous API requests.</p>
-                            <p>Manage purchases </p>
+                            <p>Manage purchases.</p>
                             <p>Use LocalStorage.</p>
                             <p>Validate users data.</p>
                         </div>
                     </div>
                 </div>
             </aside>
-            <!-- <div class="bumper">
-                <img class="up-layer" src="https://picsum.photos/id/2/500?grayscale&blur=2" alt="random image">
-                <img class="btm-layer" src="https://picsum.photos/id/2/500" alt="illustration">
-                <div class="btn">
-                    <p>Ye mighty,</p>
-                </div>
-            </div> -->
+
             <aside class="skills">
-                <div class="container">
-                    <h3>Fontend</h3>
-                    <div class="block">
+                <p>My favourite tools</p>
+                <div class="container container--skills">
+                    <h2>Fontend</h2>
+                    <div class="block block--skills">
                         <div class="items">
                             <h4>React</h4>
                             <div class="icons">
@@ -105,8 +115,14 @@
                             </div>
                         </div>
                     </div>
-                    <h3>Backend</h3>
-                    <div class="block">
+                </div>
+            </aside>
+
+            <aside class="skills">
+                <p>Cool tech that i use.</p>
+                <div class="container container--skills">
+                    <h2>Backend</h2>
+                    <div class="block block--skills">
                         <div class="items">
                             <h4>NodeJS / MongoDB</h4>
                             <div class="icons">
@@ -128,19 +144,74 @@
                     </div>
                 </div>
             </aside>
-            <aside class="education">
-                <div class="container">
-                    <p>Education</p>
-                    <div class="block">
-                        <div class="text">
-                            <h3>OpenClassrooms</h3>
-                            <p>2022 - 2023 | Web Developper | Bac+2 </p>
+
+            <aside class="skills">
+                <p>Other interests.</p>
+                <div class="container container--skills">
+                    <div class="block block--skills">
+                        <div class="items">
+                            <h4>VueJS</h4>
+                        </div>
+                        <div class="items">
+                            <h4>Nuxt</h4>
+                        </div>
+                        <div class="items">
+                            <h4>Vite</h4>
                         </div>
                     </div>
-                    <div class="block">
-                        <div class="text">
-                            <h3>Simplon - Lille</h3>
-                            <p>2021 - 2022 | Introduction to C# .NET Core | certified.</p>
+                    <div class="block block--skills">
+                        <div class="items">
+                            <h4>Angular</h4>
+                        </div>
+                        <div class="items">
+                            <h4>Sass</h4>
+                        </div>
+                        <div class="items">
+                            <h4>Tailwind</h4>
+                        </div>
+                    </div>
+                    <div class="block block--skills">
+                        <div class="items">
+                            <h4>Java</h4>
+                        </div>
+                        <div class="items">
+                            <h4>TypeScript</h4>
+                        </div>
+                        <div class="items">
+                            <h4>Rust</h4>
+                        </div>
+                    </div>
+                    <div class="block block--skills">
+                        <div class="items">
+                            <h4>Tauri</h4>
+                        </div>
+                        <div class="items">
+                            <h4>Deno</h4>
+                        </div>
+                        <div class="items">
+                            <h4>Electron</h4>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            
+            <aside class="education">
+                <p>Education</p>
+                <div class="container container--education">
+                    <div class="block block--education">
+                        <h3>Simplon - Lille</h3>
+                        <div class="text text--education">
+                            <p>2021 - 2022</p>
+                            <p>— C# .NET Core —</p>
+                            <p>certified.</p>
+                        </div>
+                    </div>
+                    <div class="block block--education">
+                        <h3>OpenClassrooms</h3>
+                        <div class="text text--education">
+                            <p>2022 - 2023</p>
+                            <p>— Web Developper —</p>
+                            <p>Bac+2 </p>
                         </div>
                     </div>
                 </div>
@@ -155,12 +226,12 @@
         </main>
 
         <footer>
-            <div class="container">
-                <p>Contact me</p>
-                <div class="block">
-                    <div class="text">
+            <div class="container container--footer">
+                <p>Let's stay in touch!</p>
+                <div class="block block--footer">
+                    <div class="text text--footer items">
                         <a href="mailto:tulinayoemmanuel@gmail.com">
-                            <p>Email</p>
+                            <p>email</p>
                             <div class="icons">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -170,7 +241,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="text">
+                    <div class="text text--footer items">
                         <a href="https://github.com/manutuli/OC_P7">
                             <P>github</P>
                             <div class="icons">
@@ -182,9 +253,9 @@
                             </div>
                         </a>
                     </div>
-                    <div class="text">
+                    <div class="text text--footer items">
                         <a href="https://fr.linkedin.com/in/emmanuel-tulinayo">
-                            <p>Profile</p>
+                            <p>linkedin</p>
                             <div class="icons">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                     <!-- ! Font Awesome Pro 6.4.0 by
