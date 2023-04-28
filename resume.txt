@@ -24,17 +24,17 @@ Kevin Powell :
 
 
 --------
-API endpoints to serve data :
-    connect to Database
-    GET endpoint "page"
-    server.run()
-Form :
-    POST endpoint "comment"?
-LocalStorage :
-    set(page)
-    page.JSON.parse()
-dynamic JS hydration :
+API endpoints to serve data : 
+    connect to Database 
+    GET endpoint "page" 
+    server.run() 
+Form : 
+    POST endpoint "comment"? 
+LocalStorage : 
+    set(page) 
+    JSON.parse(page) 
+dynamic JS hydration : 
     querySelector("experience") 
     querySelector("education") 
-    innerHTML = page.experience
+    innerHTML = page.experience 
 

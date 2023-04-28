@@ -7,10 +7,8 @@ const imageObserver = new IntersectionObserver((entries)=>{
     for (const entry of entries) {
         if (entry.isIntersecting) {
             entry.target.classList.add("show")
-            // console.log(entry.target.classList)
         } else {
             entry.target.classList.remove("show")
-            // console.log(entry.target.classList)
         }
     }
 },{threshold: 0.5})
@@ -18,10 +16,8 @@ const textObserver = new IntersectionObserver((entries)=>{
     for (const entry of entries) {
         if (entry.isIntersecting) {
             entry.target.classList.add("reveal")
-            // console.log(entry.target.classList)
         } else {
             entry.target.classList.remove("reveal")
-            // console.log(entry.target.classList)
         }
     }
 },{threshold: 0.5})
