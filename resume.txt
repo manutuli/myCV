@@ -1,27 +1,40 @@
 
 my resume april 2023 :
 
+
+--------
  Animation effect : 
-
-
 Kevin Powell :
 //www.youtube.com/watch?v=dldpud1PuL8&list=TLPQMDYwNDIwMjNiSvvHe8d83g&index=2
 
  -> layers
-
-
 {
- mask-image : url(layers) ;
- mask-mode : ;
- mask-size : ;
- mask-position :   ;
+    mask-image : url(layers) ;
+    mask-mode : ;
+    mask-size : ;
+    mask-position :   ;
 }
-
 {
- position : absolute;
- inset : 0;
- transition : ; 
- animation : steps;
+    position : absolute;
+    inset : 0;
+    transition : ; 
+    animation : steps;
 }
+ intersectionObserver
 
- intersectionObserver api
+
+--------
+API endpoints to serve data :
+    connect to Database
+    GET endpoint "page"
+    server.run()
+Form :
+    POST endpoint "comment"?
+LocalStorage :
+    set(page)
+    page.JSON.parse()
+dynamic JS hydration :
+    querySelector("experience") 
+    querySelector("education") 
+    innerHTML = page.experience
+

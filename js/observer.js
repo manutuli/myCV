@@ -32,7 +32,5 @@ for (let elmt of images) {
 for (let elmt of texts) {
     textObserver.observe(elmt)
 }
-
 // observer.disconnect()
 
-// scroll

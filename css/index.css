@@ -220,6 +220,7 @@ svg {
          );
 }
 
+
 /* button */
 .bumper:hover > .btn {
     background: var(--second-color);
