@@ -233,8 +233,9 @@ svg {
     position: relative;
     top: 40%;
     right: 150px;
+    min-width: 150px;
     outline: 2px solid var(--second-color);
-    padding: 0 50px;
+    padding: 0 15px;
     background: linear-gradient(
         160deg, 
         var(--third-color), 
@@ -271,6 +272,7 @@ svg {
 .btm-layer {
     position: absolute;
     mask-image: url("../mask/mask.png");
+    -webkit-mask-image: url("../mask/mask.png");
     mask-size: cover;
     mask-position: 0% 0%;
     opacity: 0.7;

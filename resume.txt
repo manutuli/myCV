@@ -1,7 +1,8 @@
 
-my resume april 2023 :
+my resume 
 
 
+april 2023 :
 --------
  Animation effect : 
 Kevin Powell :
@@ -12,7 +13,7 @@ Kevin Powell :
     mask-image : url(layers) ;
     mask-mode : ;
     mask-size : ;
-    mask-position :   ;
+    mask-position : ;
 }
 {
     position : absolute;
@@ -23,18 +24,31 @@ Kevin Powell :
  intersectionObserver
 
 
+may 2023 :
 --------
 API endpoints to serve data : 
     connect to Database 
     GET endpoint "page" 
     server.run() 
+
 Form : 
-    POST endpoint "comment"? 
+    <dialog data-modal > 
+    formmethod="dialog"?
+    action="url"
+    method="POST"
+    enctype="multipart/form-data"
+    name="info"
+    formData
+    endpoint "comment"? 
+
 LocalStorage : 
     set(page) 
     JSON.parse(page) 
+
 dynamic JS hydration : 
     querySelector("experience") 
-    querySelector("education") 
-    innerHTML = page.experience 
+    HTMLElement.Create("p")
+    innerText = page.experience 
+
+--------
 
