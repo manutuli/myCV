@@ -274,7 +274,9 @@ svg {
     mask-image: url("../mask/mask.png");
     -webkit-mask-image: url("../mask/mask.png");
     mask-size: cover;
+    -webkit-mask-size: cover;
     mask-position: 0% 0%;
+    -webkit-mask-position: 0% 0%;
     opacity: 0.7;
 }
 .up-layer {
@@ -283,15 +285,18 @@ svg {
 .show {
     animation: 0.8s steps(5) 0s running brush ;
     mask-position: 100% 0%;
+    -webkit-mask-position: 100% 0%;
 }
 
 /* animations */
 @keyframes brush {
     0% {
         mask-position: 0% 0% ;
+        -webkit-mask-position: 0% 0% ;
     }
     100% {
         mask-position: 100% 0%;
+        -webkit-mask-position: 100% 0%;
     }
 }
 @keyframes glisten {
