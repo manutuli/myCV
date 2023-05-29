@@ -7,7 +7,6 @@ april 2023 :
  Animation effect : 
 Kevin Powell :
 //www.youtube.com/watch?v=dldpud1PuL8&list=TLPQMDYwNDIwMjNiSvvHe8d83g&index=2
-
  -> layers
 {
     mask-image : url(layers) ;
@@ -30,6 +29,7 @@ API endpoints to serve data :
     connect to Database 
     GET endpoint "page" 
     server.run() 
+    fetch(url + "${urlSearchParam}", {options})
 
 Form : 
     <dialog data-modal > 
@@ -39,7 +39,8 @@ Form :
     enctype="multipart/form-data"
     name="info"
     formData
-    endpoint "comment"? 
+    endpoint "GET comment"? 
+    endpoint "POST comment"? 
 
 LocalStorage : 
     set(page) 
@@ -47,7 +48,7 @@ LocalStorage :
 
 dynamic JS hydration : 
     querySelector("experience") 
-    HTMLElement.Create("p")
+    HTMLElement.Create("p") 
     innerText = page.experience 
 
 --------
