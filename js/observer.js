@@ -12,6 +12,7 @@ const imageObserver = new IntersectionObserver((entries)=>{
         }
     }
 },{threshold: 0.5})
+
 const textObserver = new IntersectionObserver((entries)=>{
     for (const entry of entries) {
         if (entry.isIntersecting) {
@@ -25,6 +26,7 @@ const textObserver = new IntersectionObserver((entries)=>{
 for (let elmt of images) {
     imageObserver.observe(elmt)
 }
+
 for (let elmt of texts) {
     textObserver.observe(elmt)
 }

@@ -1,7 +1,7 @@
 
-
+// import { startFetching } from "./wiki";
 //
-let btns = document.querySelectorAll(".btn")
+let btns = document.querySelectorAll(".scroll")
 for (let btn of btns) {
     btn.addEventListener('click', (e)=>{
         e.preventDefault()
@@ -10,6 +10,7 @@ for (let btn of btns) {
             left: 0,
             behavior : "smooth"
         })
+        // console.log("num", Math.floor(Math.random() * 1000))
     });
 }
 // 
