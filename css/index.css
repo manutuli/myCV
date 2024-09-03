@@ -43,7 +43,7 @@ main {
 aside {
     opacity: 0;
     width: 100%;
-    margin: 20vh 0;
+    margin: 10vh 0;
 }
 footer {
     height: 80vh;
@@ -64,19 +64,23 @@ a:hover > div {
     border-radius: 5px;
     background-color: var(--light-color);
 }
-details  {
-    max-width: 400px;
-    opacity: 0.4;
+details:hover {
+    cursor: pointer;
+}
+details {
+    max-width: 350px;
+    opacity: 0.2;
+    /* outline: 1px solid black; */
 }
 details[open] {
     opacity: 1;
+    transition: all 0.5s;
 }
 details > div> p {
     text-align: left;
-    /* outline: 1px solid black; */
 }
 summary {
-    padding-top: 40px;
+    margin: 10vh 1vh;
     list-style: none;
 }
 
@@ -122,7 +126,7 @@ summary {
     display: flex;
     justify-content: stretch;
     max-width:30%;
-    padding: 20px 0;
+    padding: 20px 5px;
     border-top: 1px dashed var(--light-color);
     border-bottom: 1px dashed var(--light-color);
 }
