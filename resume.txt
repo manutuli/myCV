@@ -2,35 +2,39 @@
 my resume 
 
 
-april 2023 :
 --------
- Animation effect : 
-Kevin Powell :
-//www.youtube.com/watch?v=dldpud1PuL8&list=TLPQMDYwNDIwMjNiSvvHe8d83g&index=2
- -> layers
-{
+ Animation effect by Kevin Powell :
+ 
     mask-image : url(layers) ;
     mask-mode : ;
     mask-size : ;
     mask-position : ;
-}
-{
+
     position : absolute;
     inset : 0;
     transition : ; 
     animation : steps;
-}
+
  intersectionObserver
 
+--------
+SPA without JS:
+    <a href="/navigation",
+    .element:target {
+        display: ;
+    }
 
-may 2023 :
 --------
 API endpoints to serve data : 
     connect to Database 
-    GET endpoint "page" 
-    server.run() 
-    fetch(url + "${urlSearchParam}", {options})
+    GET endpoint 
 
+--------
+LocalStorage : 
+    set(page) 
+    JSON.parse(page) 
+
+--------
 Form : 
     <dialog data-modal > 
     formmethod="dialog"?
@@ -42,14 +46,5 @@ Form :
     endpoint "GET comment"? 
     endpoint "POST comment"? 
 
-LocalStorage : 
-    set(page) 
-    JSON.parse(page) 
 
-dynamic JS hydration : 
-    querySelector("experience") 
-    HTMLElement.Create("p") 
-    innerText = page.experience 
-
---------
 
