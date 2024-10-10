@@ -24,7 +24,7 @@ headers.append("Accept", "application/json")
 const quoteRequest = new Request(url, headers)
 // 
 const container = document.querySelector("#wikiquote")
-const nodeTitle = document.querySelector("summary>p.wikititle")
+const nodeTitle = document.querySelector(".wikiTitle")
 const bumper = document.querySelector(".bumper")
 const image = document.querySelector("img.btm-layer")
 const paragraph = document.createElement("p")
@@ -38,7 +38,7 @@ const init = () => {
             thumbnail,
             extract, 
         } = value;
-        nodeTitle.innerText = title + " ?";
+        nodeTitle.innerText = title;
         paragraph.innerText = extract;
         image.src = thumbnail.source;
         bumper.dataset.description = description + ".";
