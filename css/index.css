@@ -22,9 +22,9 @@ body::after {
     background: var(--dark-color);
     scroll-behavior: smooth;
 }
-body > * {
+/* body > * {
     overflow: hidden;
-}
+} */
 
 
 /* semantics */
@@ -32,12 +32,15 @@ main {
     display: grid;
     grid-template-columns: 60vw 1fr;
     grid-template-rows: auto;
+    justify-content: space-around;
+    margin: 30px;
 }
 aside {
     transition: opacity 0.3s;
     opacity: 0;
     margin: 20px;
     outline: 1px dotted var(--color-gradient-medium);
+    max-width: 800px;
     /* outline: 1px solid yellow; */
 }
 footer {
@@ -153,7 +156,7 @@ header > .container {
     flex-direction: column;
 }
 .scroll {
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 300px;
     width: fit-content;
     margin-bottom: 200px;
@@ -363,7 +366,7 @@ h1 {
 
 /* screen */
 
-@media (aspect-ratio < 1/1 ) or (max-height: 700px) {
+@media (max-aspect-ratio: 1/1 ) or (max-height: 700px) {
     main {
         display: flex;
         justify-content: center;

@@ -40,11 +40,6 @@ Form :
     formmethod="dialog"?
     action="url"
     method="POST"
-    enctype="multipart/form-data"
-    name="info"
     formData
-    endpoint "GET comment"? 
-    endpoint "POST comment"? 
-
 
 
