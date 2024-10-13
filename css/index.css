@@ -41,13 +41,12 @@ aside {
     margin: 20px;
     outline: 1px dotted var(--color-gradient-medium);
     max-width: 800px;
-    /* outline: 1px solid yellow; */
 }
 footer {
     height: 78vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 ul {
     list-style: none;
@@ -92,9 +91,6 @@ summary {
     margin: 5px;
     list-style: none;
     border-bottom: 4px solid skyblue;
-    /* align-items: start; */
-    /* width: 90%; */
-    /* outline: 1px dotted var(--color-gradient-medium); */
 }
 
 summary:hover {
@@ -154,20 +150,20 @@ header > .container {
 .block--experience {
     align-items: flex-start;
     flex-direction: column;
+    width: fit-content;
 }
 .scroll {
     overflow-y: auto;
-    max-height: 300px;
-    width: fit-content;
+    height: 300px;
+    width: 95%;
     margin-bottom: 200px;
-    position: relative;
-    left: 2vw;
+    margin-left: 1vw;
 }
-/* .text {
-    margin: 5px;
-} */
+#wikiquote > p {
+}
+
 .text > * {
-    max-width: 30ch;
+    columns: 25ch;
     text-align: left;
     font-weight: lighter;
     font-size: medium;
@@ -226,7 +222,7 @@ svg {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 380px;
+    height: 510px;
     background: 
     linear-gradient( 
         to bottom, 
@@ -366,26 +362,25 @@ h1 {
 
 /* screen */
 
-@media (max-aspect-ratio: 1/1 ) or (max-height: 700px) {
-    main {
+@media (max-width: 1100px) or (max-height: 700px) {
+    main, .container {
         display: flex;
         justify-content: center;
         flex-direction: column;
     }
+    details {
+        width: auto;
+    }
     .text > *  {
         font-size: small;
-    }
-    .container {
-        display: block;
     }
     .block {
         margin: 0;
     }
-    .block--experience > *, .scroll {
+    .block--experience > *{
         margin-left: 5vw;
     }
     details > .bumper > img {
-        /* border: 5px solid var(--dark-color); */
         mix-blend-mode: normal;
         filter: blur(0);
         transition: all var(--short-transition);
