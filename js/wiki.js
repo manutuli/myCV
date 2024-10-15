@@ -28,7 +28,10 @@ const nodeTitle = document.querySelector(".wikiTitle")
 const bumper = document.querySelector(".bumper")
 const image = document.querySelector("img.btm-layer")
 const paragraph = document.createElement("p")
-// 
+const error = {
+    title : "The title was not found.",
+    para : "The article could not be found."
+}
 const init = () => {
     const promise = startFetching(quoteRequest)
     promise.then((value) => {
@@ -38,8 +41,8 @@ const init = () => {
             thumbnail,
             extract, 
         } = value;
-        nodeTitle.innerText = title;
-        paragraph.innerText = extract;
+        title ? nodeTitle.innerText = title : nodeTitle.innerText = error.title;
+        paragraph ? paragraph.innerText = extract : paragraph.innerText = error.para;
         image.src = thumbnail.source;
         bumper.dataset.description = description + ".";
         // 
