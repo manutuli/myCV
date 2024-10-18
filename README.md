@@ -41,7 +41,8 @@ and GET endpoints `/article`, `/summary` , `/title` .
 
 --------
 ### My first AI generated application using Stackblitz Bolt. 
-[Try Stackblitz Bolt](https://bolt.new/)
+<!-- [Try Stackblitz Bolt](https://bolt.new/) -->
+
 [Check out the AI generated code](https://bolt.new/~/stackblitz-starters-m8udfr)
 The code was entirely generated within a few minutes, 
 using a framework I never worked with before... Bolt is very impressive!

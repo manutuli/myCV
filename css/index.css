@@ -9,6 +9,7 @@
    --color-gradient-medium : blueviolet; 
    --color-gradient-light : violet; 
    --short-transition: 0.4s;
+   --border-rad: 10px;
 }
 body,
 body::before,
@@ -26,21 +27,29 @@ body::after {
     overflow: hidden;
 } */
 
-
 /* semantics */
+header > .container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
 main {
     display: grid;
-    grid-template-columns: 60vw 1fr;
-    grid-template-rows: auto;
-    justify-content: space-around;
+    grid-template-columns: 3fr 2fr 300px;
     margin: 30px;
 }
 aside {
     transition: opacity 0.3s;
     opacity: 0;
-    margin: 20px;
-    outline: 1px dotted var(--color-gradient-medium);
-    max-width: 800px;
+    margin: 4em 15px;
+    outline: 1px solid var(--first-color);
+    box-shadow: 
+    -1px -1px 0.5em var(--first-color),
+    2px 2px 2em var(--color-gradient-medium);
+    border-radius: var(--border-rad);
+}
+aside::backdrop {
+    filter: blur(200px);
 }
 footer {
     height: 78vh;
@@ -55,16 +64,38 @@ p {
     font-weight: 900;
     font-size: large;
 }
-h3 {
-    text-align: center;
+div:hover > h1 {
+    background: var(--second-color);
+    animation: 2s linear 0s infinite running glisten;
 }
+h1 {
+    position: relative;
+    min-width: 300px;
+    padding: 15px 5px;
+    outline: 2px solid var(--second-color);
+    background: linear-gradient(
+        160deg, 
+        var(--third-color), 
+        var(--second-color)
+        );
+    border-radius: 6px;
+    color: var(--light-color);
+    border-bottom: 4px solid var(--second-color);
+    border-top: 2px solid var(--light-color);
+    border-left: 2px solid var(--light-color);
+    border-right: 2px solid var(--second-color);
+    /* cursor: pointer; */
+}
+/* h3 {
+    text-align: center;
+} */
 a {
     text-decoration: none;
     color: var(--light-color);
 }
 a:hover > div {
     color: #223;
-    border-radius: 5px;
+    border-radius: var(--border-rad);
     background-color: var(--light-color);
 }
 svg {
@@ -80,19 +111,28 @@ details {
 details[open] {
     opacity: 1;
     transition: all var(--short-transition);
-    outline: 1px dotted var(--color-gradient-medium);
-    padding-bottom: 60px;
+    padding: 0;
+}
+details[open] > summary {
+    border-bottom: 3px solid skyblue;
 }
 summary {
     display: flex;
     flex-direction: column;
     min-height: 100px;
     padding: 15px;
-    margin: 5px;
+    margin: 0;
     list-style: none;
-    border-bottom: 4px solid skyblue;
+    background: linear-gradient(
+        180deg, 
+        var(--dark-color), 
+        var(--third-color)
+        );
+    border-radius: var(--border-rad) var(--border-rad) 0 0;
+    border: 3px solid var(--third-color);
+    border-top: 3px solid var(--color-gradient-light);
+    text-shadow: 1px 1px 1px var(--dark-color);
 }
-
 summary:hover {
     cursor: pointer;
 }
@@ -101,48 +141,23 @@ footer summary {
 }
 
 
-/* details animations */
-/* details[open]:has(+.scroll--down:hover) > summary {
-    opacity: 0;
-}
-details[open]:has(+.scroll--down) > summary {
-    transition: opacity 0.5s;
-}
-
-details[open]:has(+.scroll--down:hover) > .scroll {
-    translate: 0 -300px;
-}
-details[open]:has(+.scroll--down) > .scroll {
-    transition: translate 3s;
-}
-.scroll--down {
-    width: 100%;
-    border-bottom: 50px solid var(--color-gradient-medium);
-} */
-
-
 /* blocs */
-.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
+.container--experience {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-header > .container {
-    grid-template-columns: 60vw 1fr;
-}
-.container--footer {
-    padding: 50px;
+.container > .block {
+    padding-bottom: 30px;
 }
 .block {
     display: flex;
-    margin: 15px;
     min-width: 250px;
 }
-.block:has(.block--header) {
-    justify-content: center;
-}
-.block--nav {
-    width: 80%;
-    justify-content: space-between;
+
+.block--header:has(h2) {
+    display: flex;
+    align-items: end;
 }
 .block--skills {
     justify-content: center;
@@ -150,24 +165,21 @@ header > .container {
 .block--experience {
     align-items: flex-start;
     flex-direction: column;
-    width: fit-content;
+}
+.block:has(.items) {
+    justify-content: center;
 }
 .scroll {
     overflow-y: auto;
     height: 300px;
-    width: 95%;
-    margin-bottom: 200px;
-    margin-left: 1vw;
 }
-#wikiquote > p {
-}
-
+/* #wikiquote > p {} */
 .text > * {
     columns: 25ch;
     text-align: left;
     font-weight: lighter;
     font-size: medium;
-    margin: 15px;
+    margin: 0 20px;
 }
 
 
@@ -180,7 +192,7 @@ header > .container {
 
 /* icons */
 svg {
-    fill: #2469cc;
+    fill: var(--first-color);
     max-width: 30px;
 }
 .items {
@@ -222,18 +234,19 @@ svg {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 510px;
+    height: 700px;
+    border-radius: 0 0 var(--border-rad) var(--border-rad);
     background: 
     linear-gradient( 
         to bottom, 
-        #223 45%,
-        blueviolet 80%, 
+        transparent 40%,
+        blueviolet 85%, 
         violet 100%
          );
 }
 .bumper::before {
     position: relative;
-    top: -250px;
+    top: -200px;
     left: 25%;
     display: block;
     width: 100%;
@@ -295,47 +308,6 @@ svg {
 }
 
 
-/* button */
-div:hover > h1 {
-    background: var(--second-color);
-    animation: 2s linear 0s infinite running glisten;
-}
-h1 {
-    position: relative;
-    min-width: 300px;
-    padding: 15px 5px;
-    outline: 2px solid var(--second-color);
-    background: linear-gradient(
-        160deg, 
-        var(--third-color), 
-        var(--second-color)
-        );
-    border-radius: 6px;
-    color: var(--light-color);
-    border-bottom: 4px solid var(--second-color);
-    border-top: 2px solid var(--light-color);
-    border-left: 2px solid var(--light-color);
-    border-right: 2px solid var(--second-color);
-    /* cursor: pointer; */
-}
-
-
-/* blur animation */
-/* .btn > p {
-    font-size: large;
-    font-weight: 600;
-    margin: 10px 0 10px 0;
-    filter: blur(1px);
-} */
-/* .bumper:hover > .btn > * {
-    filter: blur(0);
-    transition: filter var(--short-transition);
-}
-.btn:not(:hover) > * {
-    transition: filter var(--short-transition);
-} */
-
-
 /* animations */
 @keyframes brush {
     0% {
@@ -363,22 +335,24 @@ h1 {
 /* screen */
 
 @media (max-width: 1100px) or (max-height: 700px) {
-    main, .container {
+    main {
+        display: block;
+    }
+    header {
         display: flex;
         justify-content: center;
-        flex-direction: column;
+    }
+    header > .container {
+        width: 400px;
+    }
+    aside {
+        margin: 2em 0;
     }
     details {
         width: auto;
     }
     .text > *  {
         font-size: small;
-    }
-    .block {
-        margin: 0;
-    }
-    .block--experience > *{
-        margin-left: 5vw;
     }
     details > .bumper > img {
         mix-blend-mode: normal;
