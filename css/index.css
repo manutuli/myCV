@@ -1,15 +1,27 @@
 
 /* global */
 :root {
-   --first-color: #2469cc;
-   --second-color: #cc2475;
-   --third-color: blueviolet;
-   --light-color : aliceblue;
-   --dark-color : #223;
-   --color-gradient-medium : blueviolet; 
-   --color-gradient-light : violet; 
+    --primary-color : #050610;
+    --secondary-color: #15140d;
+    --accent-color: indigo;
+
+    --bg-color : linen;
+   --outline-color : gray; 
+   
    --short-transition: 0.4s;
-   --border-rad: 10px;
+   --border-rad: 6px;
+}
+
+
+:root:has(h1.darkmode) {
+    --primary-color : whitesmoke;
+    --secondary-color: mintcream;
+    --accent-color: white;
+    
+    --bg-color : rgb(60, 60, 160);
+    --outline-color : lightgray; 
+   --color-gradient-light : white; 
+
 }
 body,
 body::before,
@@ -19,43 +31,47 @@ body::after {
     line-height: 1.6em;
     text-align: center;
     margin: 0;
-    color: var(--light-color);
-    background: var(--dark-color);
+    color: var(--bg-color);
+    background: var(--primary-color);
     scroll-behavior: smooth;
 }
 /* body > * {
     overflow: hidden;
 } */
 
+
 /* semantics */
+header {
+    flex-wrap: wrap;
+}
 header > .container {
     display: flex;
     justify-content: space-around;
+}
+header .block {
+    justify-content: center;
     flex-wrap: wrap;
 }
 main {
     display: grid;
     grid-template-columns: 3fr 2fr 300px;
-    margin: 30px;
+    margin: 0 30px;
 }
 aside {
     transition: opacity 0.3s;
     opacity: 0;
-    margin: 4em 15px;
-    outline: 1px solid var(--first-color);
-    box-shadow: 
-    -1px -1px 0.5em var(--first-color),
-    2px 2px 2em var(--color-gradient-medium);
+    margin: 1em 15px;
+    outline: 1px solid var(--outline-color);
+    box-shadow: inset
+    -2px -1px 2.5em var(--accent-color)
+    ;
     border-radius: var(--border-rad);
 }
-aside::backdrop {
-    filter: blur(200px);
-}
 footer {
-    height: 78vh;
+    height: 77vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 ul {
     list-style: none;
@@ -65,38 +81,44 @@ p {
     font-size: large;
 }
 div:hover > h1 {
-    background: var(--second-color);
-    animation: 2s linear 0s infinite running glisten;
+    background: var(--secondary-color);
+    animation: 2s ease-in-out 0s infinite running glisten;
 }
 h1 {
     position: relative;
     min-width: 300px;
     padding: 15px 5px;
-    outline: 2px solid var(--second-color);
+    outline: 2px solid var(--outline-color);
     background: linear-gradient(
         160deg, 
-        var(--third-color), 
-        var(--second-color)
+        var(--accent-color),
+        var(--secondary-color) 
         );
     border-radius: 6px;
-    color: var(--light-color);
-    border-bottom: 4px solid var(--second-color);
-    border-top: 2px solid var(--light-color);
-    border-left: 2px solid var(--light-color);
-    border-right: 2px solid var(--second-color);
-    /* cursor: pointer; */
+    color: var(--bg-color);
+    cursor: pointer;
 }
-/* h3 {
+.text > h3 {
+    font-weight: bold;
+    width: 100%;
     text-align: center;
-} */
+    outline: 2px solid var(--outline-color);
+    background: linear-gradient(
+        160deg, 
+        var(--secondary-color) 2%, 
+        var(--accent-color) 90%
+        );
+    border-radius: var(--border-rad);
+    padding: 5px;
+}
 a {
     text-decoration: none;
-    color: var(--light-color);
+    color: var(--bg-color);
 }
 a:hover > div {
-    color: #223;
+    /* color: #223; */
     border-radius: var(--border-rad);
-    background-color: var(--light-color);
+    background-color: var(--bg-color);
 }
 svg {
     max-width: 50px;
@@ -114,7 +136,7 @@ details[open] {
     padding: 0;
 }
 details[open] > summary {
-    border-bottom: 3px solid skyblue;
+    border-bottom: 3px solid var(--accent-color);
 }
 summary {
     display: flex;
@@ -125,13 +147,13 @@ summary {
     list-style: none;
     background: linear-gradient(
         180deg, 
-        var(--dark-color), 
-        var(--third-color)
+        var(--primary-color), 
+        var(--secondary-color)
         );
     border-radius: var(--border-rad) var(--border-rad) 0 0;
-    border: 3px solid var(--third-color);
-    border-top: 3px solid var(--color-gradient-light);
-    text-shadow: 1px 1px 1px var(--dark-color);
+    border: 3px solid var(--secondary-color);
+    border-top: 3px solid var(--accent-color);
+    text-shadow: 1px 1px 1px var(--primary-color);
 }
 summary:hover {
     cursor: pointer;
@@ -142,32 +164,42 @@ footer summary {
 
 
 /* blocs */
+.container {
+    min-height: 500px;
+}
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 600px;
+    margin-bottom: 40px;
+}
 .container--experience {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.container > .block {
-    padding-bottom: 30px;
+.container--contact {
+    margin-bottom: 50px;
 }
 .block {
     display: flex;
     min-width: 250px;
+    justify-content: center;
 }
-
-.block--header:has(h2) {
+.block--header {
     display: flex;
     align-items: end;
+    margin: 1em;
 }
-.block--skills {
+.block--skills, .block--contact {
     justify-content: center;
 }
 .block--experience {
+    display: flex;
     align-items: flex-start;
+    justify-content: flex-start;
     flex-direction: column;
-}
-.block:has(.items) {
-    justify-content: center;
 }
 .scroll {
     overflow-y: auto;
@@ -192,7 +224,7 @@ footer summary {
 
 /* icons */
 svg {
-    fill: var(--first-color);
+    fill: var(--accent-color);
     max-width: 30px;
 }
 .items {
@@ -223,9 +255,12 @@ svg {
     justify-content: center;
     width: 50px;
     height: 50px;
-    background-color: var(--light-color);
+    background-color: var(--bg-color);
     border-radius: 25px;
     cursor: pointer;
+}
+.icons {
+    color: var(--accent-color);
 }
 
 
@@ -234,14 +269,14 @@ svg {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 700px;
+    height: 580px;
     border-radius: 0 0 var(--border-rad) var(--border-rad);
     background: 
     linear-gradient( 
         to bottom, 
         transparent 40%,
-        blueviolet 85%, 
-        violet 100%
+        var(--secondary-color) 85%, 
+        var(--accent-color) 100%
          );
 }
 .bumper::before {
@@ -276,7 +311,7 @@ svg {
     mix-blend-mode: luminosity;
 }
 .bumper:hover > img {
-    border: 55px solid var(--dark-color);
+    border: 55px solid var(--primary-color);
     mix-blend-mode: normal;
     filter: blur(0);
     transition: all var(--short-transition);
@@ -321,13 +356,13 @@ svg {
 }
 @keyframes glisten {
     0% {
-        box-shadow: inset 0.5em 0.5em 0.2rem var(--second-color);
+        box-shadow: inset 1.5em 2.5em 1.2rem var(--secondary-color);
     }
-    70% {
-        box-shadow: inset 1em 1.5em 2rem var(--third-color);
+    50% {
+        box-shadow: inset 1em 1.5em 2rem var(--accent-color);
     }
-    100% {
-        box-shadow: inset 0.5em 0.5em 0.2rem var(--second-color);
+    90% {
+        box-shadow: inset 0.5em 1.5em 0.2rem var(--secondary-color);
     }
 }
 

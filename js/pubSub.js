@@ -11,12 +11,12 @@ function subscribe(subscriber){
     subscribers.push(subscriber)
 } 
 
-function dispatch(state){
+function publish(state){
     subscribers.forEach(subscriber => subscriber(state))
 }
 
-function publish(newState){
-    dispatch(newState)
+function dispatch({newState}){
+    publish(newState)
 }
 
-export {subscribe, publish, state}
+export {subscribe, dispatch, state}

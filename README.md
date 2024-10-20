@@ -57,7 +57,7 @@ Even though the deployment process is not going as smoothly (Angular production 
 
 
 --------
-### Build a todo list with GoLang.
+### Build a todo list with Go.
 
 
 --------
