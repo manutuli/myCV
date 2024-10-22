@@ -19,4 +19,4 @@ function dispatch({newState}){
     publish(newState)
 }
 
-export {subscribe, dispatch, state}
+// export {subscribe, dispatch, state}
