@@ -20,12 +20,24 @@
     --text-color : dodgerblue;
     --outline-color : white;  
     */
-
+/* 
     --primary-color : aliceblue;
-    --secondary-color: mintcream;
-    --accent-color: ghostwhite;
-    --text-color : rgb(120, 80, 80);
-    --outline-color : gainsboro; 
+    --secondary-color: mintcream; */
+
+    /* --primary-color : lavender;
+    --secondary-color:aliceblue;
+    --accent-color: aliceblue;
+    --text-color : firebrick;
+    --outline-color : white;  */
+    
+    --primary-color : seashell;
+    --secondary-color:snow;
+    --accent-color: seashell;
+    --text-color : coral;
+    --outline-color : coral; 
+
+    /* --outline-color : gainsboro; 
+    --text-color : rgb(120, 80, 80); */
 }
 body,
 body::before,
@@ -120,6 +132,12 @@ h1 {
     color: var(--text-color);
     cursor: pointer;
 }
+.block--header > button {
+    /* padding: 0; */
+    /* margin: 0; */
+    -webkit-appearance: none;
+    appearance: none;
+}
 .tags > h3:hover {
     outline: 3px solid var(--outline-color);
 }
@@ -148,8 +166,9 @@ a:hover > div {
     background-color: var(--text-color);
 }
 svg {
-    max-width: 50px;
+    max-width: 20px;
     opacity: 1;
+    fill: var(--accent-color);
 }
 
 
@@ -169,9 +188,6 @@ details[open] {
         var(--accent-color) 100%
          ); */
 }
-details[open] > summary {
-    border-bottom: 3px solid var(--accent-color);
-}
 summary {
     display: flex;
     flex-direction: column;
@@ -186,10 +202,6 @@ summary {
         var(--secondary-color)
         );
     border-radius: var(--border-rad-sm) var(--border-rad-sm) 0 0;
-    /* border: 3px solid var(--secondary-color); */
-    border: 3px solid transparent;
-    /* border-top: 3px solid var(--accent-color); */
-    border-top: 3px solid transparent;
     text-shadow: 1px 1px 1px var(--primary-color);
 }
 summary:hover {
@@ -263,10 +275,6 @@ footer summary {
 
 
 /* icons */
-svg {
-    fill: var(--accent-color);
-    max-width: 30px;
-}
 .items {
     padding: 0 12px;
     max-width: 90px;
