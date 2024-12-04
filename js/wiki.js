@@ -19,7 +19,7 @@ function handleDarkmodeEvent(e){
     e.target.classList.toggle("darkmode")
     console.log(e.target)
 }
-
+// 
 const startFetching = async (request) => {
     const res = await fetch(request)
     return await res.json()
@@ -38,12 +38,13 @@ const bumper = document.querySelector(".bumper")
 const image = document.querySelector("img.btm-layer")
 const paragraph = document.createElement("p")
 const error = {
-    title : "The title was not found.",
-    para : "The article could not be found."
+    title : "The title is not available.",
+    paragraph : "The article is not available.",
+    description: "The description is not available.",
 }
 // 
 const init = () => {
-    // dispatch state
+    // 
     h1.addEventListener("click", handleDarkmodeEvent)
     // 
     const promise = startFetching(quoteRequest)
@@ -54,10 +55,20 @@ const init = () => {
             thumbnail,
             extract, 
         } = value;
-        title ? nodeTitle.innerText = title : nodeTitle.innerText = error.title;
-        paragraph ? paragraph.innerText = extract : paragraph.innerText = error.para;
+        // 
+        title 
+        ? nodeTitle.innerText = title 
+        : nodeTitle.innerText = error.title;
+        // 
+        paragraph 
+        ? paragraph.innerText = extract 
+        : paragraph.innerText = error.paragraph;
+        // 
         image.src = thumbnail.source;
-        bumper.dataset.description = description + ".";
+        // 
+        description 
+        ? bumper.dataset.description = description + "." 
+        : bumper.dataset.description = error.description;
         // 
         container.appendChild(paragraph)
     })

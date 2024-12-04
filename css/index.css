@@ -13,31 +13,46 @@
 }
 :root:has(h1.darkmode) {
     
-    /*
-    --primary-color: skyblue;
+/*     
+    --primary-color: aliceblue;
     --secondary-color: mintcream;
-    --accent-color: royalblue;
-    --text-color : dodgerblue;
+    --accent-color: lightcyan;
+    --text-color : royalblue;
+    --outline-color : dodgerblue;  
+    */
+  
+/*     
+    --primary-color : silver;
+    --secondary-color:aliceblue;
+    --accent-color: lightcyan;
+    --text-color : dimgray;
     --outline-color : white;  
     */
-/* 
-    --primary-color : aliceblue;
-    --secondary-color: mintcream; */
 
-    /* --primary-color : lavender;
-    --secondary-color:aliceblue;
-    --accent-color: aliceblue;
-    --text-color : firebrick;
-    --outline-color : white;  */
+/*      
+    --primary-color : silver;
+    --secondary-color: ghostwhite;
+    --accent-color: lavender;
+    --text-color : black;
+    --outline-color : white;  
+    */
+       
+/*     
+    --primary-color : deeppink;
+    --secondary-color: magenta;
+    --accent-color: fuchsia;
+    --text-color : black;
+    --outline-color : firebrick;  
+    */
+
+
     
-    --primary-color : seashell;
-    --secondary-color:snow;
+    --primary-color : whitesmoke;
+    --secondary-color: snow;
     --accent-color: seashell;
-    --text-color : coral;
-    --outline-color : coral; 
-
-    /* --outline-color : gainsboro; 
-    --text-color : rgb(120, 80, 80); */
+    --text-color : tomato;
+    --outline-color : lightsalmon;  
+   
 }
 body,
 body::before,
@@ -81,7 +96,6 @@ aside {
     -2px -1px 2.5em var(--accent-color)
     ;
     border-radius: var(--border-rad-sm);
-    /* background: linear-gradient(200deg, var(--outline-color), var(--accent-color)); */
     filter: contrast(100%) brightness(100%) ;    
     background-image:
         linear-gradient( 
@@ -142,10 +156,9 @@ h1 {
     outline: 3px solid var(--outline-color);
 }
 .tags > h3 {
+    cursor: default;
     font-size: small;
     margin: 5px;
-    /* font-weight: bold; */
-    /* width: 100%; */
     text-align: center;
     outline: 1px solid var(--outline-color);
     background: linear-gradient(
@@ -167,8 +180,8 @@ a:hover > div {
 }
 svg {
     max-width: 20px;
-    opacity: 1;
     fill: var(--accent-color);
+    /* opacity: 1; */
 }
 
 
@@ -256,6 +269,7 @@ footer summary {
 .scroll {
     overflow-y: auto;
     height: 300px;
+    scrollbar-width: thin;
 }
 /* #wikiquote > p {} */
 .text > * {

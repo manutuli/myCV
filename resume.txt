@@ -37,9 +37,7 @@ LocalStorage :
 --------
 Form : 
     <dialog data-modal > 
-    formmethod="dialog"?
-    action="url"
-    method="POST"
+    action="file.json"
     formData
 
 

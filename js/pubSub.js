@@ -1,6 +1,6 @@
 
 
-const state = {
+let state = {
     count: 0,
     fetchStatus: null,
 }
@@ -15,7 +15,7 @@ function publish(state){
     subscribers.forEach(subscriber => subscriber(state))
 }
 
-function dispatch({newState}){
+function dispatch(newState){
     publish(newState)
 }
 

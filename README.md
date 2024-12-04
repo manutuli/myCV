@@ -4,10 +4,7 @@ Hi, hello, I am Emmanuel,
 
     I am a web developper in France, this is my resume and kind of, my portfolio.
 
-
 --> [Check out my resume, https://tulinayo.com](https://tulinayo.com)
-
---> [I am currently working on...](#My-first-AI-generated-application-using-Stackblitz-Bolt)
 
 --------
 ### Awesome Animation effect inspired by Kevin Powell. 
