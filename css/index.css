@@ -241,6 +241,7 @@ footer summary {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    /* flex-direction: column; */
 }
 .container--contact {
     margin-bottom: 50px;
