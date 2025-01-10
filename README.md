@@ -34,9 +34,9 @@ and GET endpoints `/article`, `/summary` , `/title` .
 ### Build a SPA without JS/React.
 ```html
     <!-- <a href="#navigation" ></a> -->
-     <input type="radio" name="tabs" id="tab1" >
+     <input type="radio" name="tab1" id="tab1" >
      <label for="tag1">TAB 1</label>
-     <div class="tab-content" id="content1">
+     <div class="tab-content" id="content-tab1">
         <p></p>
      </div>
 ```

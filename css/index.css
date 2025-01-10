@@ -251,6 +251,17 @@ footer summary {
     min-width: 250px;
     justify-content: center;
 }
+/* .block--header:has(h1)::before {
+    visibility: hidden;
+    content: "light";
+}
+.block--header:has(h1)::after {
+    visibility: hidden;
+    content: " theme";
+}
+.block--header:has(h1):hover::after {
+    visibility: visible;
+} */
 .block--header {
     display: flex;
     align-items: end;
