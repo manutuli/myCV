@@ -152,10 +152,10 @@ h1 {
     -webkit-appearance: none;
     appearance: none;
 }
-.tags > h3:hover {
+.tags > li:hover {
     outline: 3px solid var(--outline-color);
 }
-.tags > h3 {
+.tags > li {
     cursor: default;
     font-size: small;
     margin: 5px;

@@ -1,32 +1,25 @@
 
-// import { dispatch, subscribe } from "./pubSub"
-
-/** 
- * When I navigate to the page,
- * I can see a wiki quote.
- * 
-*/
 
 /**
- * When I click on "new quote", 
- * I can see a new quote.
  * 
+ * @param {MouseEvent} e 
  */
-
-// subscribe reducer
 function handleDarkmodeEvent(e){
     e.preventDefault()
     e.target.classList.toggle("darkmode")
     console.log(e.target)
 }
-// 
+/**
+ * 
+ * @param {Request} request 
+ * @returns {promise}
+ */ 
 const startFetching = async (request) => {
     const res = await fetch(request)
     return await res.json()
 }
 // 
 let url = `https://en.wikipedia.org/api/rest_v1/page/random/summary`
-// 
 const headers = new Headers()
 headers.append("Accept", "application/json")
 const quoteRequest = new Request(url, headers)
@@ -44,7 +37,6 @@ const error = {
 }
 // 
 const init = () => {
-    // 
     h1.addEventListener("click", handleDarkmodeEvent)
     // 
     const promise = startFetching(quoteRequest)
