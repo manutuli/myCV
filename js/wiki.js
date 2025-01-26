@@ -12,11 +12,23 @@ function handleDarkmodeEvent(e){
 /**
  * 
  * @param {Request} request 
- * @returns {promise}
+ * @returns {promise} Promise for fetched Data
  */ 
 const startFetching = async (request) => {
     const res = await fetch(request)
     return await res.json()
+}
+/**
+ * 
+ * @param {String} url 
+ * @returns {String} URL || Empty String
+ */
+const sanitizeUrl = (url)=> {
+    const arr = url.split("/")
+    if (arr[0] === "https:" && arr[2] === "upload.wikimedia.org") {
+        return url
+    }
+    return ""
 }
 // 
 let url = `https://en.wikipedia.org/api/rest_v1/page/random/summary`
@@ -47,7 +59,7 @@ const init = () => {
             thumbnail,
             extract, 
         } = value;
-        // 
+        // sanitize the image src
         title 
         ? nodeTitle.innerText = title 
         : nodeTitle.innerText = error.title;
@@ -56,7 +68,7 @@ const init = () => {
         ? paragraph.innerText = extract 
         : paragraph.innerText = error.paragraph;
         // 
-        image.src = thumbnail.source;
+        image.src = sanitizeUrl(thumbnail.source);
         // 
         description 
         ? bumper.dataset.description = description + "." 
