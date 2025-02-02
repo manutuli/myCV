@@ -40,7 +40,10 @@ const container = document.querySelector("#wikiquote")
 const nodeTitle = document.querySelector(".wikiTitle")
 const h1 = document.querySelector("h1")
 const bumper = document.querySelector(".bumper")
-const image = document.querySelector("img.btm-layer")
+const image = document.createElement("img")
+image.classList.add("img")
+image.classList.add("btm-layer")
+bumper.appendChild(image)
 const paragraph = document.createElement("p")
 const error = {
     title : "The title is not available.",
@@ -64,7 +67,7 @@ const init = () => {
         ? nodeTitle.innerText = title 
         : nodeTitle.innerText = error.title;
         // 
-        paragraph 
+        extract 
         ? paragraph.innerText = extract 
         : paragraph.innerText = error.paragraph;
         // 
