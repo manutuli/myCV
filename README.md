@@ -55,6 +55,10 @@ Even though the deployment process is not going as smoothly (Angular production 
     `bugs` that can only be fixed by a human action.
 
 --------
+### NextJS Dashboard App.
+
+
+--------
 ### Apply the Fundamentals of JAVA.
 
 
