@@ -7,12 +7,11 @@
 function handleDarkmodeEvent(e){
     e.preventDefault()
     e.target.classList.toggle("darkmode")
-    console.log(e.target)
 }
 /**
  * 
  * @param {Request} request 
- * @returns {promise} Promise for fetched Data
+ * @returns {Promise} Promise for fetched Data
  */ 
 const startFetching = async (request) => {
     const res = await fetch(request)

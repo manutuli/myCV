@@ -12,47 +12,20 @@
    --border-rad-bg: 20px;
 }
 :root:has(h1.darkmode) {
-    
-/*     
-    --primary-color: aliceblue;
-    --secondary-color: mintcream;
-    --accent-color: lightcyan;
-    --text-color : royalblue;
-    --outline-color : dodgerblue;  
-    */
-  
-/*     
-    --primary-color : silver;
-    --secondary-color:aliceblue;
-    --accent-color: lightcyan;
-    --text-color : dimgray;
-    --outline-color : white;  
-    */
 
-/*      
-    --primary-color : silver;
-    --secondary-color: ghostwhite;
-    --accent-color: lavender;
-    --text-color : black;
-    --outline-color : white;  
-    */
-       
-/*     
-    --primary-color : deeppink;
-    --secondary-color: magenta;
-    --accent-color: fuchsia;
-    --text-color : black;
-    --outline-color : firebrick;  
-    */
-
-
-    
+    --primary-color : snow;
+    --secondary-color:mintcream;
+    --accent-color: ghostwhite;
+    --text-color : tomato;
+    --outline-color : lavender;  
+      
+/* 
     --primary-color : whitesmoke;
     --secondary-color: snow;
     --accent-color: seashell;
-    --text-color : tomato;
+    --text-color : firebrick;
     --outline-color : lightsalmon;  
-   
+    */
 }
 body,
 body::before,
