@@ -2,16 +2,8 @@
 
 /**
  * 
- * @param {MouseEvent} e 
- */
-function handleDarkmodeEvent(e){
-    e.preventDefault()
-    e.target.classList.toggle("darkmode")
-}
-/**
- * 
  * @param {Request} request 
- * @returns {Promise} Promise for fetched Data
+ * @returns {Promise} - Promise for fetched Data
  */ 
 const startFetching = async (request) => {
     const res = await fetch(request)
@@ -51,7 +43,7 @@ const error = {
 }
 // 
 const init = () => {
-    h1.addEventListener("click", handleDarkmodeEvent)
+    // h1.addEventListener("click", handleDarkmodeEvent)
     // 
     const promise = startFetching(quoteRequest)
     promise.then((value) => {

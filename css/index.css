@@ -5,20 +5,17 @@
     --secondary-color: hsl(53, 24%, 9%);
     --accent-color: #2c0449;
     --text-color : linen;
-   --outline-color : darkslateblue; 
-   
-   --short-transition: 0.4s;
-   --border-rad-sm: 6px;
-   --border-rad-bg: 20px;
+    --outline-color : darkslateblue; 
+    --short-transition: 0.4s;
+    --border-rad-sm: 6px;
+    --border-rad-bg: 20px;
 }
-:root:has(h1.darkmode) {
-
+:root:has(input#dark:checked) {
     --primary-color : snow;
-    --secondary-color:mintcream;
+    --secondary-color: mintcream;
     --accent-color: ghostwhite;
     --text-color : tomato;
     --outline-color : lavender;  
-      
 /* 
     --primary-color : whitesmoke;
     --secondary-color: snow;
@@ -119,9 +116,36 @@ h1 {
     color: var(--text-color);
     cursor: pointer;
 }
+.block--darkmode {
+    position: relative;
+    top: 10px;
+    left: 30px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: var(--outline-color);
+}
+input[name='darkmode'] {
+    appearance: none;
+    position: relative;
+    top: 3px;
+    margin: 2px;
+    width: 25px;
+    height: 20px;
+    border-radius: 20px;
+    border: 1px solid var(--text-color);
+    background: linear-gradient(
+        160deg, 
+        var(--accent-color),
+        var(--primary-color) 
+        );
+}
+.label--dark > input:checked, .label--light > input:checked {
+    visibility: hidden;
+} 
 .block--header > button {
-    /* padding: 0; */
-    /* margin: 0; */
     -webkit-appearance: none;
     appearance: none;
 }

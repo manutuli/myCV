@@ -1,10 +1,10 @@
 
 # My Resume
-Hi, hello, I am Emmanuel,
+Hi, I am Emmanuel,
 
-    I am a web developper in France, this is my resume and kind of, my portfolio.
+    I am a web developper in France, this is my resume and portfolio.
 
---> [Check out my resume, https://tulinayo.com](https://tulinayo.com)
+--> [Find my resume here, https://tulinayo.com](https://tulinayo.com)
 
 --------
 ### Awesome Animation effect inspired by Kevin Powell. 
@@ -30,42 +30,21 @@ Hi, hello, I am Emmanuel,
 Use the [Wikipedia REST API](https://doc.wikimedia.org/Wikibase/master/js/rest-api/) 
 and GET endpoints `/article`, `/summary` , `/title` . 
 
---------
-### Build a SPA without JS/React.
-```html
-    <!-- <a href="#navigation" ></a> -->
-     <input type="radio" name="tab1" id="tab1" >
-     <label for="tag1">TAB 1</label>
-     <div class="tab-content" id="content-tab1">
-        <p></p>
-     </div>
 ```
 
 --------
 ### My first AI generated application using Stackblitz Bolt. 
 <!-- [Try Stackblitz Bolt](https://bolt.new/) -->
 
-[Check out the AI generated code](https://bolt.new/~/stackblitz-starters-m8udfr)
+[AI generated app](https://bolt.new/~/stackblitz-starters-m8udfr)
 The code was entirely generated within a few minutes, 
 using a framework I never worked with before... Bolt is very impressive!
 Even though the deployment process is not going as smoothly (Angular production build), I am sure it will be fixed.
 
-    As many have already remarked, and I agree, the future of AI coding will be : 
-    exponentially faster development cycles -> exponential amount of code -> exponential amount of 
-    `bugs` that can only be fixed by a human action.
+    As many have already remarked, and I agree that the future of AI coding will be : 
+    exponentially faster development cycles -> exponential amount of code -> exponential amount of bugs.
 
 --------
-### NextJS Dashboard App.
 
-
---------
-### Apply the Fundamentals of JAVA.
-
-
---------
-### Build a todo list with Go.
-
-
---------
 
 
