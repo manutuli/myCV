@@ -1,14 +1,11 @@
 
 # My Resume
-Hi, I am Emmanuel,
+Hi, my name is Emmanuel,
 
-    I am a web developper in France, this is my resume and portfolio.
-
---> [Find my resume here, https://tulinayo.com](https://tulinayo.com)
+    I am a web developper in France.
 
 --------
 ### Awesome Animation effect inspired by Kevin Powell. 
-[https://www.youtube.com/kevinpowell](https://www.youtube.com/kevinpowell)
 ```css
     .style {
         mask-image : url(layers) ;
@@ -27,21 +24,18 @@ Hi, I am Emmanuel,
 
 --------
 ### Call a REST API and use the data. 
-Use the [Wikipedia REST API](https://doc.wikimedia.org/Wikibase/master/js/rest-api/) 
-and GET endpoints `/article`, `/summary` , `/title` . 
-
-```
+I Use the [Wikipedia REST API](https://doc.wikimedia.org/Wikibase/master/js/rest-api/) 
+with the GET endpoints : `/article`, `/summary` , `/title` . 
 
 --------
 ### My first AI generated application using Stackblitz Bolt. 
 <!-- [Try Stackblitz Bolt](https://bolt.new/) -->
 
 [AI generated app](https://bolt.new/~/stackblitz-starters-m8udfr)
-The code was entirely generated within a few minutes, 
-using a framework I never worked with before... Bolt is very impressive!
-Even though the deployment process is not going as smoothly (Angular production build), I am sure it will be fixed.
+The code was entirely generated in a few minutes, 
+Even though the deployment process is not going as smoothly (Angular production build).
 
-    As many have already remarked, and I agree that the future of AI coding will be : 
+    the future of AI coding seems to be : 
     exponentially faster development cycles -> exponential amount of code -> exponential amount of bugs.
 
 --------

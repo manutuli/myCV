@@ -127,6 +127,9 @@ h1 {
     border-radius: 20px;
     background-color: var(--outline-color);
 }
+.block--darkmode:hover input[name='darkmode'] {
+    border: 1px solid var(--text-color);
+}
 input[name='darkmode'] {
     appearance: none;
     position: relative;
@@ -135,7 +138,6 @@ input[name='darkmode'] {
     width: 25px;
     height: 20px;
     border-radius: 20px;
-    border: 1px solid var(--text-color);
     background: linear-gradient(
         160deg, 
         var(--accent-color),
