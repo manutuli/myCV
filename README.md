@@ -17,7 +17,6 @@ Hi, my name is Emmanuel,
     }
 ```
 ### Implement the Animation Trigger with intersectionObserver
-[MDN docs for intersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver)
 ```js
     const observer = new intersectionObserver()
 ```

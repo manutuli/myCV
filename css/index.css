@@ -1,5 +1,4 @@
 
-/* global */
 :root {
     --primary-color : #050610;
     --secondary-color: hsl(53, 24%, 9%);
@@ -39,6 +38,7 @@ body::after {
 
 
 /* semantics */
+
 header {
     flex-wrap: wrap;
 }
@@ -98,6 +98,7 @@ p {
     font-weight: 900;
     font-size: large;
 }
+/* select, option, option:hover {} */
 div:hover > h1 {
     background: var(--secondary-color);
     animation: 2s ease-in-out 0s infinite running glisten;
@@ -126,6 +127,7 @@ h1 {
     align-items: center;
     border-radius: 20px;
     background-color: var(--outline-color);
+    max-height: 25px;
 }
 .block--darkmode:hover input[name='darkmode'] {
     border: 1px solid var(--text-color);
@@ -133,10 +135,10 @@ h1 {
 input[name='darkmode'] {
     appearance: none;
     position: relative;
-    top: 3px;
+    top: 5px;
     margin: 2px;
     width: 25px;
-    height: 20px;
+    height: 18px;
     border-radius: 20px;
     background: linear-gradient(
         160deg, 
@@ -144,12 +146,16 @@ input[name='darkmode'] {
         var(--primary-color) 
         );
 }
-.label--dark > input:checked, .label--light > input:checked {
-    visibility: hidden;
+.label--dark:has(input:checked), 
+.label--light:has(input:checked) {
+    display: none;
 } 
 .block--header > button {
     -webkit-appearance: none;
     appearance: none;
+}
+.tags > .tag.active {
+    outline: 3px solid var(--text-color);
 }
 .tags > li:hover {
     outline: 3px solid var(--outline-color);
@@ -173,18 +179,17 @@ a {
     color: var(--text-color);
 }
 a:hover > div {
-    /* color: #223; */
     border-radius: var(--border-rad-sm);
     background-color: var(--text-color);
 }
 svg {
     max-width: 20px;
     fill: var(--accent-color);
-    /* opacity: 1; */
 }
 
 
 /* details */
+
 details {
     opacity: 0.5;
 }
@@ -225,6 +230,7 @@ footer summary {
 
 
 /* blocs */
+
 .container {
     min-height: 500px;
     padding-bottom: 50px;
@@ -240,7 +246,6 @@ footer summary {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* flex-direction: column; */
 }
 .container--contact {
     margin-bottom: 50px;
@@ -250,17 +255,6 @@ footer summary {
     min-width: 250px;
     justify-content: center;
 }
-/* .block--header:has(h1)::before {
-    visibility: hidden;
-    content: "light";
-}
-.block--header:has(h1)::after {
-    visibility: hidden;
-    content: " theme";
-}
-.block--header:has(h1):hover::after {
-    visibility: visible;
-} */
 .block--header {
     display: flex;
     align-items: end;
@@ -293,6 +287,7 @@ footer summary {
 
 
 /* reveal */
+
 .reveal {
     opacity: 1;
     transition: 1s opacity;
@@ -300,6 +295,7 @@ footer summary {
 
 
 /* icons */
+
 .items {
     padding: 0 12px;
     max-width: 90px;
@@ -338,19 +334,13 @@ footer summary {
 
 
 /* bumper */
+
 .bumper {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 580px;
     border-radius: 0 0 var(--border-rad-sm) var(--border-rad-sm);
-    /* background: 
-    linear-gradient( 
-        to bottom, 
-        transparent 40%,
-        var(--secondary-color) 85%, 
-        var(--accent-color) 100%
-         ); */
 }
 .bumper::before {
     position: relative;
@@ -396,6 +386,7 @@ footer summary {
 
 
 /* mask */
+
 .btm-layer {
     position: absolute;
     mask-image: url("../mask/mask.png");
@@ -417,6 +408,7 @@ footer summary {
 
 
 /* animations */
+
 @keyframes brush {
     0% {
         mask-position: 0% 0% ;

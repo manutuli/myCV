@@ -17,17 +17,20 @@
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <script defer src="./js/wiki.js"></script>
         <script defer src="./js/observer.js"></script>
+        <script defer src="./js/sort.js"></script>
         <title> Emmanuel Tulinayo </title>
     </head>
 
     <body>
         <header>
             <div class="block--darkmode">                
-                <label class="label--dark">
+                <label class="label--dark"> 
+                    🌕
                     <input type="radio" name="darkmode" id="dark">
                 </label>
-                <label class="label--light">
+                <label class="label--light"> 
                     <input checked type="radio" name="darkmode" id="light">
+                    🌑 
                 </label>
             </div>
             <div class="block">
@@ -37,38 +40,50 @@
                 <div class="block--header">
                     <h2>Emmanuel Tulinayo</h2>
                 </div>
+                <!-- <ul class="block--header ">
+                    <li>
+                        <select name="frontend" id="frontend-select"> 
+                            <option value="" selected>-- Frontend --</option>
+                            <option value="React" >React</option>
+                            <option value="JavaScript" >JavaScript</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select name="backend" id="backend-select"> 
+                            <option value="" selected>-- backend --</option>
+                            <option value="React" >Express</option>
+                        </select>
+                    </li>
+                </ul> -->
                 <ul class="block--header tags">
-                    <li>JavaScript</li>
-                    <!-- <li>Responsive websites</li> -->
+                    <li class="tag">JavaScript</li>
                     <!-- <li>JSDoc</li> -->
-                    <li>Jest</li>
-                    <li>prop-types</li>
-                    <!-- <li>Testing-library</li> -->
-                    <li>Lighthouse SEO</li>
-                    <li>Accessibility</li>
-                    <!-- <li>Fullstack Applications</li> -->
-                    <li>MERN Stack</li>
-                    <!-- <li>React</li> -->
-                    <li>React-dom</li>
-                    <li>React-router-dom</li>
-                    <li>redux-toolkit</li>
-                    <li>JWT</li>
-                    <li>NodeJS</li>
-                    <li>Express</li>
-                    <li> 
+                    <li class="tag">Jest</li>
+                    <li class="tag">Testing-library</li>
+                    <li class="tag">Lighthouse SEO</li>
+                    <li class="tag">Accessibility</li>
+                    <li class="tag">MERN Stack</li>
+                    <li class="tag">prop-types</li>
+                    <li class="tag">React-dom</li>
+                    <li class="tag">React-router-dom</li>
+                    <li class="tag">redux-toolkit</li>
+                    <li class="tag">JWT</li>
+                    <li class="tag">NodeJS</li>
+                    <li class="tag">Express</li>
+                    <li class="tag"> 
                         <abbr title="Representational State Transfer">REST</abbr> 
                         <!-- <abbr title="Application Programming Interface"> APIs</abbr>  -->
                     </li>
-                    <li>Swagger</li>
-                    <li>MongoDB</li>
-                    <li>PostgreSQL</li>
-                    <li>MySQL</li>
-                    <li>PHP</li>
+                    <li class="tag">Swagger</li>
+                    <li class="tag">MongoDB</li>
+                    <li class="tag">PostgreSQL</li>
+                    <li class="tag">MySQL</li>
+                    <!-- <li>PHP</li> -->
                     <!-- <li>Linux Terminal</li> -->
                 </ul>
             </div>
 
-            <div class="block">
+            <!-- <div class="block">
                 <div class="block--header items">
                     <a target="_blank" href="https://github.com/manutuli?tab=repositories">
                         <P>github</P>
@@ -86,16 +101,13 @@
                         <p>linkedin</p>
                         <div class="icons">
                             <svg  viewBox="0 0 448 512">
-                                <!-- ! Font Awesome Pro 6.4.0 by
-                                @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial
-                                License) Copyright 2023 Fonticons, Inc. -->
                                 <path
                                     d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
                             </svg>
                         </div>
                     </a>
                 </div>
-            </div>
+            </div> -->
         </header>
         
         <main>
@@ -150,7 +162,8 @@
                     <div class="container container--experience">
                         <div class="block--experience">
                             <h3>Web Design</h3>
-                            <div class="text text--experience">
+                            <!-- card image -->
+                            <div class="text">
                                 <p>I transform client specifications into visually appealing and user-friendly
                                 designs, ensuring a seamless user experience. My focus is on creating intuitive
                                 interfaces that effectively communicate the brand's message.</p>
@@ -158,7 +171,8 @@
                         </div>
                         <div class="block--experience">
                             <h3>React <abbr title="Single Page Application">SPA</abbr></h3>
-                            <div class="text text--experience">
+                            <!-- card image -->
+                            <div class="text">
                                 <p>Utilizing "react-router-dom," I craft dynamic navigation systems for single-page
                                 applications. I develop responsive user interfaces and efficiently manage application
                                 state with "redux-toolkit," ensuring a smooth and interactive user experience.</p>
@@ -166,7 +180,8 @@
                         </div>
                         <div class="block--experience">
                             <h3><abbr title="Mongoose, Express, React, NodeJS">MERN</abbr> Stack</h3>
-                            <div class="text text--experience">
+                            <!-- card image -->
+                            <div class="text">
                                 <p>With expertise in the MERN stack, I implement robust <abbr title="Create, Read, Update, Delete">CRUD</abbr>
                                 operations, leveraging MongoDB, Express, and React. I enhance security through JWT
                                 authentication and ensure user data protection by encrypting passwords.</p>
@@ -174,7 +189,8 @@
                         </div>
                         <div class="block--experience">
                             <h3>JavaScript Applications</h3>
-                            <div class="text text--experience">
+                            <!-- card image -->
+                            <div class="text">
                                 <p>I develop efficient JavaScript applications that validate user input and interact
                                 with REST APIs. By utilizing LocalStorage, I provide users with a reliable way to
                                 save their purchases, enhancing their overall experience.</p>
@@ -277,7 +293,6 @@
                                 <a target="_blank" href="https://github.com/manutuli/OC_P3">
                                     <p>SASS</p>
                                     <div class="icons">
-                                        <!-- <p>css</p> -->
                                         <svg 
                                             fill="#000000" width="225px" height="225px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier">

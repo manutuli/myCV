@@ -11,8 +11,8 @@ const startFetching = async (request) => {
 }
 /**
  * 
- * @param {String} url 
- * @returns {String} URL || Empty String
+ * @param {string} url - The url of the Wikipedia's api.
+ * @returns {string} - URL || Empty String
  */
 const sanitizeUrl = (url)=> {
     const arr = url.split("/")

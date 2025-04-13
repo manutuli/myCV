@@ -3,7 +3,6 @@
 // intersection observer
 const images = document.querySelectorAll(".btm-layer")
 const texts = document.querySelectorAll("aside")
-// 
 const imageObserver = new IntersectionObserver((entries)=>{
     for (const entry of entries) {
         if (entry.isIntersecting) {
@@ -13,7 +12,6 @@ const imageObserver = new IntersectionObserver((entries)=>{
         }
     }
 },{threshold: 0.5})
-// 
 const textObserver = new IntersectionObserver((entries)=>{
     for (const entry of entries) {
         if (entry.isIntersecting) {
