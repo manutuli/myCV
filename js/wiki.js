@@ -1,18 +1,21 @@
 
 
 /**
- * 
- * @param {Request} request 
- * @returns {Promise} - Promise for fetched Data
+ * Get data from the wikipedia rest api
+ * @returns {Promise} A Promise for fetched data
  */ 
-const startFetching = async (request) => {
+const getRandomSummary = async () => {
+    const api = `https://en.wikipedia.org/api/rest_v1/page/random/summary`
+    const headers = new Headers()
+    headers.append("Accept", "application/json")
+    const request = new Request(api, headers)
     const res = await fetch(request)
     return await res.json()
 }
 /**
- * 
- * @param {string} url - The url of the Wikipedia's api.
- * @returns {string} - URL || Empty String
+ * Validate the given url 
+ * @param {string} url - The url string of the Wikipedia's api.
+ * @returns {string} A string url or an empty string
  */
 const sanitizeUrl = (url)=> {
     const arr = url.split("/")
@@ -21,11 +24,6 @@ const sanitizeUrl = (url)=> {
     }
     return ""
 }
-// 
-let url = `https://en.wikipedia.org/api/rest_v1/page/random/summary`
-const headers = new Headers()
-headers.append("Accept", "application/json")
-const quoteRequest = new Request(url, headers)
 // 
 const container = document.querySelector("#wikiquote")
 const nodeTitle = document.querySelector(".wikiTitle")
@@ -36,24 +34,21 @@ image.classList.add("img")
 image.classList.add("btm-layer")
 bumper.appendChild(image)
 const paragraph = document.createElement("p")
-const error = {
-    title : "The title is not available.",
-    paragraph : "The article is not available.",
-    description: "The description is not available.",
-}
 // 
 const init = () => {
-    // h1.addEventListener("click", handleDarkmodeEvent)
-    // 
-    const promise = startFetching(quoteRequest)
+    const promise = getRandomSummary()
     promise.then((value) => {
+        const error = {
+            title : "The title is not available.",
+            paragraph : "The article is not available.",
+            description: "The description is not available.",
+        }
         const {
             title, 
             description,
             thumbnail,
             extract, 
         } = value;
-        // sanitize the image src
         title 
         ? nodeTitle.innerText = title 
         : nodeTitle.innerText = error.title;
@@ -61,7 +56,7 @@ const init = () => {
         extract 
         ? paragraph.innerText = extract 
         : paragraph.innerText = error.paragraph;
-        // 
+        // sanitize the image src
         image.src = sanitizeUrl(thumbnail.source);
         // 
         description 
