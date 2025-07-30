@@ -13,8 +13,7 @@ const STORE = {
     // replace with 'setData(CARDS)'
     cards : [...setData(TAGS)],
 }
-/**
- * Get the matching values from two arrays 
+/** Get the matching values from two arrays 
  * @param {Object} obj - tags and cards.
  * @param {string[]} obj.tags - Array of tags.
  * @param {string[]} obj.cards - Array of cards.
@@ -29,8 +28,7 @@ function matchArrays({tags, cards}){
     })
     return matchingCards
 }
-/**
- * Set an array from the text content of DOM elements
+/** Set an array from the text content of DOM elements
  * @param {Object} obj - The query selector and data-set values.
  * @param {string} obj.SELECTOR - The DOM query selector.
  * @param {string} obj.DATA_SET - The data-set attribute value. 

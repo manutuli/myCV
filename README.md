@@ -1,8 +1,6 @@
 
 # My Resume
-Hi, my name is Emmanuel,
-
-    I am a web developper in France.
+Hi, I am Emmanuel, web developper in France.
 
 --------
 ### Awesome Animation effect inspired by Kevin Powell. 
