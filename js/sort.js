@@ -1,32 +1,10 @@
-
-
-const CARDS = {
-    SELECTOR : ".card",
-    DATA_SET : "card",
-}
 const TAGS = {
     SELECTOR : ".tag",
     DATA_SET : "tag",
 }
 const STORE = {
-    tags : [...setData(TAGS)],
-    // replace with 'setData(CARDS)'
-    cards : [...setData(TAGS)],
-}
-/** Get the matching values from two arrays 
- * @param {Object} obj - tags and cards.
- * @param {string[]} obj.tags - Array of tags.
- * @param {string[]} obj.cards - Array of cards.
- * @returns {Array} An array of matching cards or an error message.
- */
-function matchArrays({tags, cards}){ 
-    // if (!cards || !tags ) return "no match"
-    let matchingCards = cards.map((card)=>{
-        let array = []
-        tags.forEach((tag) => card.includes(tag) ? array.push(card) : null)
-        return array[0]
-    })
-    return matchingCards
+    tags : [...storeTags(TAGS)],
+    activeTags : new Set(),
 }
 /** Set an array from the text content of DOM elements
  * @param {Object} obj - The query selector and data-set values.
@@ -34,7 +12,7 @@ function matchArrays({tags, cards}){
  * @param {string} obj.DATA_SET - The data-set attribute value. 
  * @returns {Array} An array that contains the text from the element.
  */
-function setData({ SELECTOR, DATA_SET }){
+function storeTags({ SELECTOR, DATA_SET }){
     let array = []
     const elements = document.querySelectorAll(SELECTOR)
     elements.forEach( elmt => {
@@ -43,28 +21,35 @@ function setData({ SELECTOR, DATA_SET }){
     })
     return array
 }
-
-matchArrays(STORE)
-let tags =  document.querySelectorAll(TAGS.SELECTOR)
-tags.forEach(tag => {
-    tag.addEventListener("click", (e) => {
-        e.preventDefault()
-        e.target.classList.toggle("active")
-    })
-})
-
-// console.log(matchArrays(store))
-
-/**
- * match the selected 'data-tags' with 'data-cards' 
- *  |
- *   select the value of each tag , store the values
- *   select the values of each card , store the values 
- *   add data-tags="value" for each tag
- *   add status="" to tags
- *   match tags with cards
- *  |
- *  - add data-cards="multiple values" for each card
- *  - display the matching cards
- *  |
+/** Sets a tag's state to active
+ * 
+ * @param {string} tag 
  */
+function toggleTagsState(tag){
+    STORE.activeTags.has(tag) 
+    ? STORE.activeTags.delete(tag)
+    : STORE.activeTags.add(tag)
+}
+/** Set Tags EventListeners
+ * 
+ */
+function setTagsEventListeners(tags){
+    tags.forEach(tag => {
+        tag.addEventListener("click", (e) => {
+            e.preventDefault()
+            e.target.classList.toggle("active")
+            toggleTagsState(e.target.textContent)
+            // console.log(STORE.activeTags)
+            // updateTagsList(STORE.activeTags)
+        })
+    })
+}
+function updateTagsList(array) {
+    // select dom list
+    // delete dom items
+    // create new items
+}
+
+
+const tags =  document.querySelectorAll(TAGS.SELECTOR)
+setTagsEventListeners(tags)

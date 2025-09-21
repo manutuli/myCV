@@ -1,27 +1,28 @@
 
 :root {
     --primary-color : #050610;
-    --secondary-color: hsl(53, 24%, 9%);
+    --secondary-color: rgb(28, 27, 17);
     --accent-color: #2c0449;
     --text-color : linen;
     --outline-color : darkslateblue; 
     --short-transition: 0.4s;
+    --long-transition: 0.8s;
     --border-rad-sm: 6px;
     --border-rad-bg: 20px;
 }
 :root:has(input#dark:checked) {
-    --primary-color : snow;
+    /* --primary-color : snow;
     --secondary-color: mintcream;
     --accent-color: ghostwhite;
     --text-color : tomato;
-    --outline-color : lavender;  
-/* 
+    --outline-color : lavender;   */
+
     --primary-color : whitesmoke;
     --secondary-color: snow;
     --accent-color: seashell;
     --text-color : firebrick;
     --outline-color : lightsalmon;  
-    */
+   
 }
 body,
 body::before,
@@ -52,34 +53,40 @@ header .block {
 }
 main {
     display: grid;
-    grid-template-columns: 3fr 2fr 300px;
+    grid-template-columns: 400px 3fr;
     margin: 40px 10vw;
     isolation: isolate;
 }
 aside {
-    transition: opacity 0.3s;
+    transition: opacity var(--short-transition);
     opacity: 0;
-    margin: 1em 1em;
-    padding: 1px;
+    margin: 0 20px;
     outline: 1px solid var(--outline-color);
-    box-shadow: inset
-    -2px -1px 2.5em var(--accent-color)
+    box-shadow: 
+        inset
+        -2px -1px 2.5em var(--accent-color)
     ;
     border-radius: var(--border-rad-sm);
     filter: contrast(100%) brightness(100%) ;    
     background-image:
         linear-gradient( 
-        to bottom, 
-        transparent 40%,
-        var(--secondary-color) 85%, 
-        var(--accent-color) 100%
+            to bottom, 
+            transparent 40%,
+            var(--secondary-color) 85%, 
+            var(--accent-color) 100%
          ),
-        linear-gradient(20deg, rgba(0,0,0,0), var(--accent-color)),
-        radial-gradient(circle at 50% 50%, var(--secondary-color) 36%, rgba(0,0,0,0)),
+        linear-gradient( 
+            20deg, 
+            rgba(0,0,0,0), 
+            var(--accent-color)),
+        radial-gradient( 
+            circle at 50% 50%, 
+            var(--secondary-color) 36%, 
+            rgba(0,0,0,0)),
         url("data:image/svg+xml,%3Csvg viewBox='0 0 65 65' xmlns='https://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='5.6' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 aside:hover {
-    outline: 3px solid var(--outline-color);
+    outline: 2px solid var(--outline-color);
 }
 aside > * {
     filter: brightness(100%);
@@ -98,24 +105,42 @@ p {
     font-weight: 900;
     font-size: large;
 }
-/* select, option, option:hover {} */
-div:hover > h1 {
+h1 {
     background: var(--secondary-color);
     animation: 2s ease-in-out 0s infinite running glisten;
-}
-h1 {
-    position: relative;
     min-width: 300px;
     padding: 15px 5px;
     outline: 1px solid var(--outline-color);
-    background: linear-gradient(
-        160deg, 
-        var(--accent-color),
-        var(--secondary-color) 
-        );
-    border-radius: 6px;
+    border-radius: var(--border-rad-sm);
     color: var(--text-color);
-    cursor: pointer;
+}
+.block--header {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 60%;
+
+}
+.block--header > h2 {
+    color: transparent;
+    font-size: xx-large;
+    background: 
+        linear-gradient(
+            180deg, 
+            var(--outline-color),
+            var(--text-color)
+        );
+    background-repeat: no-repeat;
+    background-size: 100% 100px;
+    background-clip: text;
+}
+div:hover > .block--header > h2 {
+    background-size: 100% 100%;
+    transition: all var(--short-transition) ease-out;
+}
+div:not(:hover) > .block--header > h2 {
+    transition: all var(--long-transition) ease-in;
 }
 .block--darkmode {
     position: relative;
@@ -125,7 +150,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: var(--border-rad-bg);
     background-color: var(--outline-color);
     max-height: 25px;
 }
@@ -139,21 +164,18 @@ input[name='darkmode'] {
     margin: 2px;
     width: 25px;
     height: 18px;
-    border-radius: 20px;
-    background: linear-gradient(
-        160deg, 
-        var(--accent-color),
-        var(--primary-color) 
+    border-radius: var(--border-rad-bg);
+    background: 
+        linear-gradient(
+            160deg, 
+            var(--accent-color),
+            var(--primary-color) 
         );
 }
 .label--dark:has(input:checked), 
 .label--light:has(input:checked) {
     display: none;
 } 
-.block--header > button {
-    -webkit-appearance: none;
-    appearance: none;
-}
 .tags > .tag.active {
     outline: 3px solid var(--text-color);
 }
@@ -166,10 +188,11 @@ input[name='darkmode'] {
     margin: 5px;
     text-align: center;
     outline: 1px solid var(--outline-color);
-    background: linear-gradient(
-        360deg, 
-        var(--secondary-color) 70%, 
-        var(--accent-color) 90%
+    background: 
+        linear-gradient(
+            360deg, 
+            var(--secondary-color) 70%, 
+            var(--accent-color) 90%
         );
     border-radius: var(--border-rad-bg);
     padding: 0 15px;
@@ -190,49 +213,64 @@ svg {
 
 /* details */
 
-details {
-    opacity: 0.5;
+details.block--experience {
+    padding-bottom: 20px;
 }
-details[open] {
-    padding: 0;
+details.block--experience > * {
+    opacity: 0.5;
+    max-height: 90px;
+}
+details[open].block--experience {
     opacity: 1;
-    transition: all var(--short-transition);
-    /* background: 
-    linear-gradient( 
-        to bottom, 
-        transparent 40%,
-        var(--secondary-color) 85%, 
-        var(--accent-color) 100%
-         ); */
+    max-height: 500px;
+}
+details[open].block--experience > * {
+    opacity: 1;
+    max-height: 500px;
+    transition: all var(--long-transition);
+}
+.block--experience {
+    border-radius: var(--border-rad-sm) var(--border-rad-sm);
+    outline: 1px solid var(--outline-color);
+    margin: 20px;
+    background:
+        linear-gradient(
+            180deg, 
+            var(--primary-color), 
+            var(--secondary-color)
+        );
 }
 summary {
     display: flex;
     flex-direction: column;
-    min-height: 100px;
+    height: 100px;
     padding: 15px;
-    margin: 0;
     font-size: small;
     list-style: none;
-    background: linear-gradient(
-        180deg, 
-        var(--primary-color), 
-        var(--secondary-color)
-        );
-    border-radius: var(--border-rad-sm) var(--border-rad-sm) 0 0;
     text-shadow: 1px 1px 1px var(--primary-color);
 }
 summary:hover {
+    opacity: 1;
     cursor: pointer;
 }
-footer summary {
-    align-items: center;
+
+.block--experience > summary {
+    height: 50px;
+    background:
+        linear-gradient(
+            180deg, 
+            var(--outline-color) 5% , 
+            var(--outline-color) 25% , 
+            var(--secondary-color) 25%, 
+            var(--accent-color)
+        );
 }
 
 
 /* blocs */
 
 .container {
-    min-height: 500px;
+    min-height: 300px;
     padding-bottom: 50px;
 }
 .contact {
@@ -242,44 +280,27 @@ footer summary {
     min-height: 600px;
     margin-bottom: 40px;
 }
-.container--experience {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.container--contact {
-    margin-bottom: 50px;
-}
 .block {
     display: flex;
     min-width: 250px;
     justify-content: center;
 }
-.block--header {
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 60%;
-}
 .block--skills, .block--contact {
     justify-content: center;
 }
-.block--experience {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-}
 .scroll {
     overflow-y: auto;
-    height: 300px;
+    height: 500px;
     scrollbar-width: thin;
 }
 /* #wikiquote > p {} */
+.text {
+    display: flex;
+    place-content: center;
+}
 .text > * {
-    columns: 25ch;
     text-align: left;
+    max-width: 400px;
     font-weight: lighter;
     font-size: medium;
     margin: 0 20px;
@@ -311,7 +332,7 @@ footer summary {
 }
 .items:hover .icons__small,
 .items:hover .icons {
-    border-radius: 3px;
+    border-radius: var(--border-rad-sm);
     transition: var(--short-transition) ease-out border-radius;
 }
 .icons:not(:hover), .icons__small:not(:hover) {
@@ -325,7 +346,7 @@ footer summary {
     width: 50px;
     height: 50px;
     background-color: var(--text-color);
-    border-radius: 25px;
+    border-radius: var(--border-rad-bg);
     cursor: pointer;
 }
 .icons {
@@ -339,7 +360,7 @@ footer summary {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 580px;
+    /* height: 580px; */
     border-radius: 0 0 var(--border-rad-sm) var(--border-rad-sm);
 }
 .bumper::before {
@@ -374,7 +395,7 @@ footer summary {
     mix-blend-mode: luminosity;
 }
 .bumper:hover > img {
-    border: 55px solid var(--primary-color);
+    border: 45px solid var(--primary-color);
     mix-blend-mode: normal;
     filter: blur(0);
     transition: all var(--short-transition);
@@ -387,8 +408,10 @@ footer summary {
 
 /* mask */
 
-.btm-layer {
+.img {
     position: absolute;
+}
+.btm-layer {
     mask-image: url("../mask/mask.png");
     -webkit-mask-image: url("../mask/mask.png");
     mask-size: cover;
@@ -427,16 +450,16 @@ footer summary {
         box-shadow: inset 1em 1.5em 2rem var(--accent-color);
     }
     90% {
-        box-shadow: inset 0.5em 1.5em 0.2rem var(--secondary-color);
+        box-shadow: inset 1.5em 2.5em 1.2rem var(--secondary-color);
     }
 }
 
 
 /* screen */
 
-@media (max-width: 1100px) or (max-height: 700px) {
+@media screen and (max-width: 1100px) {
     main {
-        display: block;
+        grid-template-columns: auto;
         margin: 0 20px;
     }
     header {
@@ -449,13 +472,10 @@ footer summary {
     aside {
         margin: 2em 0;
     }
-    details {
-        width: auto;
-    }
-    .text > *  {
+    .text {
         font-size: small;
     }
-    details > .bumper > img {
+    aside > .bumper > img {
         mix-blend-mode: normal;
         filter: blur(0);
         transition: all var(--short-transition);
