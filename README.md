@@ -1,5 +1,5 @@
 
-# My Resume
+# My Website
 Hi, I am Emmanuel, web developper in France.
 
 --------
@@ -23,6 +23,14 @@ Hi, I am Emmanuel, web developper in France.
 ### Call a REST API and use the data. 
 I Use the [Wikipedia REST API](https://doc.wikimedia.org/Wikibase/master/js/rest-api/) 
 with the GET endpoints : `/article`, `/summary` , `/title` . 
+
+--------
+### Play with The Tags
+    * store in indexedDB
+    * sort alphabetically
+    * drag and drop
+    * shuffle
+    * reset
 
 --------
 ### My first AI generated application using Stackblitz Bolt. 

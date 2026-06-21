@@ -1,9 +1,10 @@
 
 :root {
+    /* dusk light */
     --primary-color : #050610;
     --secondary-color: rgb(28, 27, 17);
     --accent-color: #2c0449;
-    --text-color : linen;
+    --text-color : lightsteelblue;
     --outline-color : darkslateblue; 
     --short-transition: 0.4s;
     --long-transition: 0.8s;
@@ -11,17 +12,40 @@
     --border-rad-bg: 20px;
 }
 :root:has(input#dark:checked) {
+    /* icy clouds */
     /* --primary-color : snow;
     --secondary-color: mintcream;
-    --accent-color: ghostwhite;
-    --text-color : tomato;
+    --accent-color: aliceblue;
+    --text-color : cornflowerblue;
     --outline-color : lavender;   */
-
-    --primary-color : whitesmoke;
+    
+    /* bubble gum */
+    /* --primary-color : whitesmoke;
     --secondary-color: snow;
     --accent-color: seashell;
-    --text-color : firebrick;
-    --outline-color : lightsalmon;  
+    --text-color : lightsalmon;
+    --outline-color : lightpink; */
+
+    /* glossy paper */
+    --primary-color : ghostwhite;
+    --secondary-color: azure;
+    --accent-color: aliceblue;
+    --text-color : indianred;
+    --outline-color : lavender;
+
+    /* high contrast */
+    /* --primary-color : ghostwhite;
+    --secondary-color: aliceblue;
+    --accent-color: azure;
+    --text-color : black;
+    --outline-color : lavender; */
+
+    /* green leaves */
+    /* --primary-color : palegreen;
+    --secondary-color: lightgreen;
+    --accent-color: aquamarine;
+    --text-color : darkgreen;
+    --outline-color : honeydew; */
    
 }
 body,
@@ -33,13 +57,20 @@ body::after {
     text-align: center;
     margin: 0;
     color: var(--text-color);
-    background: radial-gradient(var(--accent-color), var(--primary-color));
+    background: radial-gradient(
+        var(--accent-color), 
+        var(--primary-color)
+    );
+    background-image: repeating-linear-gradient(
+        var(--secondary-color), 
+        var(--accent-color) 25%, 
+        var(--primary-color)
+    );
     scroll-behavior: smooth;
 }
 
 
 /* semantics */
-
 header {
     flex-wrap: wrap;
 }
@@ -67,7 +98,6 @@ aside {
         -2px -1px 2.5em var(--accent-color)
     ;
     border-radius: var(--border-rad-sm);
-    filter: contrast(100%) brightness(100%) ;    
     background-image:
         linear-gradient( 
             to bottom, 
@@ -77,19 +107,18 @@ aside {
          ),
         linear-gradient( 
             20deg, 
-            rgba(0,0,0,0), 
+            var(--secondary-color), 
             var(--accent-color)),
         radial-gradient( 
             circle at 50% 50%, 
             var(--secondary-color) 36%, 
-            rgba(0,0,0,0)),
+            var(--secondary-color)),
         url("data:image/svg+xml,%3Csvg viewBox='0 0 65 65' xmlns='https://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='5.6' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 aside:hover {
     outline: 2px solid var(--outline-color);
 }
 aside > * {
-    filter: brightness(100%);
     background-image: none;
 }
 footer {
@@ -106,13 +135,12 @@ p {
     font-size: large;
 }
 h1 {
-    background: var(--secondary-color);
-    animation: 2s ease-in-out 0s infinite running glisten;
+    animation: 5s ease-in 0s 
+        infinite running glisten;
     min-width: 300px;
     padding: 15px 5px;
     outline: 1px solid var(--outline-color);
     border-radius: var(--border-rad-sm);
-    color: var(--text-color);
 }
 .block--header {
     display: flex;
@@ -122,25 +150,18 @@ h1 {
     width: 60%;
 
 }
-.block--header > h2 {
-    color: transparent;
-    font-size: xx-large;
-    background: 
-        linear-gradient(
-            180deg, 
-            var(--outline-color),
-            var(--text-color)
-        );
-    background-repeat: no-repeat;
-    background-size: 100% 100px;
-    background-clip: text;
-}
+
 div:hover > .block--header > h2 {
-    background-size: 100% 100%;
-    transition: all var(--short-transition) ease-out;
+    transition: 
+        all 
+        var(--short-transition) 
+        ease-out;
 }
 div:not(:hover) > .block--header > h2 {
-    transition: all var(--long-transition) ease-in;
+    transition: 
+        all 
+        var(--long-transition) 
+        ease-in;
 }
 .block--darkmode {
     position: relative;
@@ -151,11 +172,11 @@ div:not(:hover) > .block--header > h2 {
     justify-content: center;
     align-items: center;
     border-radius: var(--border-rad-bg);
-    background-color: var(--outline-color);
+    background-color: var(--text-color);
     max-height: 25px;
 }
 .block--darkmode:hover input[name='darkmode'] {
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--outline-color);
 }
 input[name='darkmode'] {
     appearance: none;
@@ -187,6 +208,7 @@ input[name='darkmode'] {
     font-size: small;
     margin: 5px;
     text-align: center;
+    border-radius: var(--border-rad-bg);
     outline: 1px solid var(--outline-color);
     background: 
         linear-gradient(
@@ -194,8 +216,8 @@ input[name='darkmode'] {
             var(--secondary-color) 70%, 
             var(--accent-color) 90%
         );
-    border-radius: var(--border-rad-bg);
     padding: 0 15px;
+    user-select: none;
 }
 a {
     text-decoration: none;
@@ -212,63 +234,54 @@ svg {
 
 
 /* details */
-
-details.block--experience {
-    padding-bottom: 20px;
+details.experience > * {
+    opacity: 0.8;
+    max-height: 80px;
 }
-details.block--experience > * {
-    opacity: 0.5;
-    max-height: 90px;
-}
-details[open].block--experience {
+details[open].experience {
     opacity: 1;
     max-height: 500px;
 }
-details[open].block--experience > * {
+details[open].experience > * {
     opacity: 1;
     max-height: 500px;
     transition: all var(--long-transition);
 }
-.block--experience {
-    border-radius: var(--border-rad-sm) var(--border-rad-sm);
+.experience {
+    border-radius: 
+        var(--border-rad-sm) 
+        var(--border-rad-sm);
     outline: 1px solid var(--outline-color);
     margin: 20px;
-    background:
-        linear-gradient(
-            180deg, 
-            var(--primary-color), 
-            var(--secondary-color)
-        );
 }
 summary {
     display: flex;
     flex-direction: column;
     height: 100px;
     padding: 15px;
-    font-size: small;
     list-style: none;
-    text-shadow: 1px 1px 1px var(--primary-color);
 }
 summary:hover {
     opacity: 1;
     cursor: pointer;
 }
 
-.block--experience > summary {
-    height: 50px;
+.experience > summary {
+    border-radius: 
+        var(--border-rad-sm) 
+        var(--border-rad-sm);
     background:
         linear-gradient(
             180deg, 
             var(--outline-color) 5% , 
-            var(--outline-color) 25% , 
-            var(--secondary-color) 25%, 
+            var(--outline-color) 10% , 
+            var(--secondary-color) 15%, 
             var(--accent-color)
         );
 }
 
 
 /* blocs */
-
 .container {
     min-height: 300px;
     padding-bottom: 50px;
@@ -293,33 +306,30 @@ summary:hover {
     height: 500px;
     scrollbar-width: thin;
 }
-/* #wikiquote > p {} */
 .text {
     display: flex;
     place-content: center;
+    background:
+        linear-gradient(
+            180deg, 
+            var(--primary-color) 25%, 
+            var(--primary-color) 76%, 
+            transparent
+        );
 }
 .text > * {
     text-align: left;
     max-width: 400px;
     font-weight: lighter;
     font-size: medium;
-    margin: 0 20px;
+    margin: 20px;
 }
-
-
-/* reveal */
-
-.reveal {
-    opacity: 1;
-    transition: 1s opacity;
-}
-
 
 /* icons */
-
 .items {
     padding: 0 12px;
     max-width: 90px;
+    margin-bottom: 20px;
 }
 .items > * {
     display: flex;
@@ -333,11 +343,17 @@ summary:hover {
 .items:hover .icons__small,
 .items:hover .icons {
     border-radius: var(--border-rad-sm);
-    transition: var(--short-transition) ease-out border-radius;
+    transition: 
+        var(--short-transition) 
+        ease-out 
+        border-radius;
 }
 .icons:not(:hover), .icons__small:not(:hover) {
     border-radius: 25px;
-    transition: var(--short-transition) ease-in-out border-radius;
+    transition: 
+        var(--short-transition) 
+        ease-in-out 
+        border-radius;
 }
 .icons, .icons__small {
     display: flex;
@@ -355,13 +371,16 @@ summary:hover {
 
 
 /* bumper */
-
 .bumper {
     display: flex;
     align-items: center;
     justify-content: center;
     /* height: 580px; */
-    border-radius: 0 0 var(--border-rad-sm) var(--border-rad-sm);
+    border-radius: 
+        0 
+        0 
+        var(--border-rad-sm) 
+        var(--border-rad-sm);
 }
 .bumper::before {
     position: relative;
@@ -381,10 +400,14 @@ summary:hover {
 }
 .bumper:hover::after {
     opacity: 0.5;
-    transition: opacity var(--short-transition);
+    transition: 
+        opacity 
+        var(--short-transition);
 }
 .bumper:not(:hover)::after {
-    transition: opacity var(--short-transition);
+    transition: 
+        opacity 
+        var(--short-transition);
 }
 .bumper > img {
     height: 200px;
@@ -406,8 +429,20 @@ summary:hover {
 }
 
 
-/* mask */
+/* reveal observed aside */
+.reveal {
+    opacity: 1;
+    transition: 1s opacity;
+}
 
+
+/* wiki */
+.wiki.reveal {
+    opacity: 1;
+    transition: 0.8s opacity;
+}
+
+/* mask */
 .img {
     position: absolute;
 }
@@ -420,9 +455,8 @@ summary:hover {
     -webkit-mask-position: 0% 0%;
     opacity: 1;
 }
-.up-layer {
-    opacity: 0;
-}
+
+/* show observed images */
 .show {
     animation: 0.8s steps(5) 0s running brush ;
     mask-position: 100% 0%;
@@ -431,7 +465,6 @@ summary:hover {
 
 
 /* animations */
-
 @keyframes brush {
     0% {
         mask-position: 0% 0% ;
@@ -449,14 +482,13 @@ summary:hover {
     50% {
         box-shadow: inset 1em 1.5em 2rem var(--accent-color);
     }
-    90% {
+    100% {
         box-shadow: inset 1.5em 2.5em 1.2rem var(--secondary-color);
     }
 }
 
 
 /* screen */
-
 @media screen and (max-width: 1100px) {
     main {
         grid-template-columns: auto;

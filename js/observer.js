@@ -1,8 +1,7 @@
 
-
-// intersection observer
 const images = document.querySelectorAll(".btm-layer")
-const texts = document.querySelectorAll("aside")
+const aside = document.querySelectorAll("aside")
+// 
 const imageObserver = new IntersectionObserver((entries)=>{
     for (const entry of entries) {
         if (entry.isIntersecting) {
@@ -12,6 +11,7 @@ const imageObserver = new IntersectionObserver((entries)=>{
         }
     }
 },{threshold: 0.5})
+// 
 const textObserver = new IntersectionObserver((entries)=>{
     for (const entry of entries) {
         if (entry.isIntersecting) {
@@ -22,11 +22,12 @@ const textObserver = new IntersectionObserver((entries)=>{
     }
 },{threshold: 0.2})
 // 
+// const wikiObserver = new MutationObserver(())
+// 
 for (let elmt of images) {
     imageObserver.observe(elmt)
 }
-// 
-for (let elmt of texts) {
+for (let elmt of aside) {
     textObserver.observe(elmt)
 }
 
