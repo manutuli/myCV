@@ -1,4 +1,16 @@
-
+/**
+ * Get data from the wikipedia rest api
+ * @returns {Promise} A Promise for fetched data
+ */ 
+ async function getWikiSummary(endpoint) {
+    const api = `https://en.wikipedia.org/api/rest_v1/page/summary/${endpoint}`
+    const headers = new Headers()
+    // Api-User-Agent : ...
+    headers.append("Accept", "application/json")
+    const request = new Request(api, headers)
+    const res = await fetch(request)
+    return await res.json()
+}
 /**
  * Validate the given url 
  * @param {string} url - The url string of the Wikipedia's api.
@@ -11,21 +23,13 @@ function sanitizeUrl(url) {
     }
     return ""
 }
-/**
- * Get data from the wikipedia rest api
- * @returns {Promise} A Promise for fetched data
- */ 
- async function getWikiSummary(endpoint) {
-    const api = `https://en.wikipedia.org/api/rest_v1/page/summary/${endpoint}`
-    const headers = new Headers()
-    // Api-User-Agent : @godaddy.com
-    headers.append("Accept", "application/json")
-    const request = new Request(api, headers)
-    const res = await fetch(request)
-    return await res.json()
+function hideElement(element) {
+    element.classList.remove("reveal")
 }
-async function renderHTML({extract, title, description}) {
-    // hideWiki()
+function showElement(element) {
+    element.classList.add("reveal")
+}
+function renderHTML({extract, title, description}) {
     const nodeTitle = document.querySelector(".wikiTitle")
     const nodeDescription = document.querySelector(".wikiDescription")
     const nodeExtract = document.querySelector(".wikiExtract")
@@ -43,28 +47,41 @@ async function renderHTML({extract, title, description}) {
     : nodeExtract.innerText = error.missingExtract;
     // 
     description 
-    ? nodeDescription.textContent = `( ${description} . )` 
+    ? nodeDescription.textContent = `${description}.` 
     : nodeDescription.textContent = error.missingDescription;
 } 
-async function renderSummary(index) {
+function renderSummary(index) {
     const endpoint = STORE.endpoints[index]
+    // hide Wiki
+    const container = document.querySelector(".wiki")
+    hideElement(container)
     // check storage 
     const wiki = localStorage.getItem(endpoint)
     if (wiki) {
-        const obj = JSON.parse(wiki)
-        return await renderHTML(obj)
+        setTimeout(() => {
+            const obj = JSON.parse(wiki)
+            renderHTML(obj)
+            // reveal wiki
+            showElement(container)
+        }, 200);
+        return 
     }
     // or call api
-    const { title, description, extract } = await getWikiSummary(endpoint)
-    await renderHTML({title, extract, description})
-    // and add to storage
-    const data = JSON.stringify({extract, title, description})
-    localStorage.setItem(endpoint, data)
+    const promise =  getWikiSummary(endpoint)
+    promise.then((value) => {
+        const { title, description, extract } = value;
+        renderHTML({title, extract, description})
+        // reveal Wiki
+        showElement(container)
+        // and add to storage
+        const data = JSON.stringify({extract, title, description})
+        localStorage.setItem(endpoint, data)
+    })
+    .catch((err) => err ? console.log(err) : null)
 }
 function updateStorage() {
-    const endpoint = STORE.activeEndpoint
-    const index = STORE.getIndexOfEndpoint(endpoint)
+    const active = STORE.activeEndpoint
+    const index = STORE.getIndexOfEndpoint(active)
     return renderSummary(index)
 }
 updateStorage()
-

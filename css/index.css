@@ -432,14 +432,14 @@ summary:hover {
 /* reveal observed aside */
 .reveal {
     opacity: 1;
-    transition: 1s opacity;
+    transition: 0.8s ease-out opacity;
 }
 
 
 /* wiki */
-.wiki.reveal {
-    opacity: 1;
-    transition: 0.8s opacity;
+.wiki:not(.reveal) {
+    opacity: 0;
+    transition: 0.2s opacity;
 }
 
 /* mask */

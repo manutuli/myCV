@@ -1,4 +1,3 @@
-
 /** Updates the active state
  * @param {String} tag 
  */
