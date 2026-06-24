@@ -58,12 +58,10 @@ function renderSummary(index) {
     // check storage 
     const wiki = localStorage.getItem(endpoint)
     if (wiki) {
-        setTimeout(() => {
-            const obj = JSON.parse(wiki)
-            renderHTML(obj)
-            // reveal wiki
-            showElement(container)
-        }, 200);
+        const obj = JSON.parse(wiki)
+        renderHTML(obj)
+        // reveal wiki
+        showElement(container)
         return 
     }
     // or call api
