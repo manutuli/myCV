@@ -1,6 +1,6 @@
 const STORE = {
     QUERY_SELECTOR_PROJECTS : "details[data-xp]",
-    DATASET_SELECTOR_PROJECTS : "xp",
+    // DATASET_SELECTOR_PROJECTS : "experience",
     QUERY_SELECTOR_TAGS : ".tag",
     DATASET_SELECTOR_TAGS : "tag",
     endpoints : [

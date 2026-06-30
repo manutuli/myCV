@@ -58,40 +58,45 @@ body::after {
     margin: 0;
     color: var(--text-color);
     background: radial-gradient(
-        var(--accent-color), 
+        darken(var(--accent-color)), 
         var(--primary-color)
     );
     background-image: repeating-linear-gradient(
-        var(--secondary-color), 
-        var(--accent-color) 25%, 
-        var(--primary-color)
+        color-mix(in oklab, var(--secondary-color) 100%, black), 
+        color-mix(in oklab, var(--accent-color) 100%, black) 25%, 
+        color-mix(in oklab, var(--primary-color) 100%, black)
     );
     scroll-behavior: smooth;
 }
 
 
 /* semantics */
+header, footer, main, section {
+    display: grid;
+    grid-template-rows: auto;
+}
 header {
-    flex-wrap: wrap;
-}
-header > .container {
-    display: flex;
-    justify-content: space-around;
-}
-header .block {
-    justify-content: center;
-    flex-wrap: wrap;
+    grid-template-columns:  1fr 2fr 1fr;
+} 
+section {
+    display: grid;
+    grid-template-columns:  2fr 1fr;
+    margin: 40px 10vw;
+    isolation: isolate;
 }
 main {
-    display: grid;
     grid-template-columns: 400px 3fr;
     margin: 40px 10vw;
     isolation: isolate;
 }
+.grid {
+    display: grid;
+    grid-template-columns: 5fr 400px;
+}
 aside {
     transition: opacity var(--short-transition);
     opacity: 0;
-    margin: 0 20px;
+    margin: 0 20px 50px 20px ;
     outline: 1px solid var(--outline-color);
     box-shadow: 
         inset
@@ -123,12 +128,10 @@ aside > * {
 }
 footer {
     height: 77vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 ul {
     list-style: none;
+    padding: 0;
 }
 p {
     font-weight: 900;
@@ -142,26 +145,11 @@ h1 {
     outline: 1px solid var(--outline-color);
     border-radius: var(--border-rad-sm);
 }
-.block--header {
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 60%;
-
-}
-
 div:hover > .block--header > h2 {
-    transition: 
-        all 
-        var(--short-transition) 
-        ease-out;
+    transition: all var(--short-transition) ease-out;
 }
 div:not(:hover) > .block--header > h2 {
-    transition: 
-        all 
-        var(--long-transition) 
-        ease-in;
+    transition: all var(--long-transition) ease-in;
 }
 .block--darkmode {
     position: relative;
@@ -197,6 +185,15 @@ input[name='darkmode'] {
 .label--light:has(input:checked) {
     display: none;
 } 
+.tags {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.clicked-tags > li {
+    width: 150px;
+}
 .tags > .tag.active {
     outline: 3px solid var(--text-color);
 }
@@ -208,7 +205,7 @@ input[name='darkmode'] {
     font-size: small;
     margin: 5px;
     text-align: center;
-    border-radius: var(--border-rad-bg);
+    border-radius: var(--border-rad-sm);
     outline: 1px solid var(--outline-color);
     background: 
         linear-gradient(
@@ -234,26 +231,39 @@ svg {
 
 
 /* details */
-details.experience > * {
+details > * {
     opacity: 0.8;
     max-height: 80px;
 }
-details[open].experience {
+details[open] {
     opacity: 1;
     max-height: 500px;
 }
-details[open].experience > * {
+details[open] > * {
     opacity: 1;
     max-height: 500px;
     transition: all var(--long-transition);
 }
-.experience {
+details {
     border-radius: 
         var(--border-rad-sm) 
         var(--border-rad-sm);
     outline: 1px solid var(--outline-color);
     margin: 20px;
 }
+details > summary {
+    border-radius: 
+        var(--border-rad-sm) 
+        var(--border-rad-sm);
+    background:
+        linear-gradient(
+            180deg, 
+            var(--outline-color) 5% , 
+            var(--outline-color) 10% , 
+            var(--secondary-color) 15%, 
+            var(--accent-color)
+        );
+} 
 summary {
     display: flex;
     flex-direction: column;
@@ -266,40 +276,18 @@ summary:hover {
     cursor: pointer;
 }
 
-.experience > summary {
-    border-radius: 
-        var(--border-rad-sm) 
-        var(--border-rad-sm);
-    background:
-        linear-gradient(
-            180deg, 
-            var(--outline-color) 5% , 
-            var(--outline-color) 10% , 
-            var(--secondary-color) 15%, 
-            var(--accent-color)
-        );
-}
 
 
 /* blocs */
-.container {
-    min-height: 300px;
-    padding-bottom: 50px;
-}
+/* .container {} */
+/* .block {} */
+/* .block--skills, .block--contact {} */
 .contact {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 600px;
     margin-bottom: 40px;
-}
-.block {
-    display: flex;
-    min-width: 250px;
-    justify-content: center;
-}
-.block--skills, .block--contact {
-    justify-content: center;
 }
 .scroll {
     overflow-y: auto;
@@ -318,44 +306,37 @@ summary:hover {
         );
 }
 .text > * {
-    text-align: left;
     max-width: 400px;
+    margin: 20px;
+    text-align: left;
     font-weight: lighter;
     font-size: medium;
-    margin: 20px;
+}
+.text--footer { 
+    height: 55%;
 }
 
+
 /* icons */
-.items {
-    padding: 0 12px;
-    max-width: 90px;
-    margin-bottom: 20px;
+.links {
+    display: flex;
+    justify-content: center;
 }
-.items > * {
+.links > * {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: fit-content;
-}
-.icons__small svg {
-    max-width: 25px;
-}
-.items:hover .icons__small,
-.items:hover .icons {
-    border-radius: var(--border-rad-sm);
-    transition: 
-        var(--short-transition) 
-        ease-out 
-        border-radius;
-}
-.icons:not(:hover), .icons__small:not(:hover) {
+    margin-bottom: 20px;
+} 
+.icons:not(:hover) {
     border-radius: 25px;
     transition: 
         var(--short-transition) 
         ease-in-out 
         border-radius;
 }
-.icons, .icons__small {
+.icons {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -370,83 +351,37 @@ summary:hover {
 }
 
 
-/* bumper */
-.bumper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* height: 580px; */
-    border-radius: 
-        0 
-        0 
-        var(--border-rad-sm) 
-        var(--border-rad-sm);
-}
-.bumper::before {
-    position: relative;
-    top: -200px;
-    left: 25%;
-    display: block;
-    width: 100%;
-    content: attr(data-description);
-    z-index: 11;
-}
-.bumper::after {
-    opacity: 0;
-    display: block;
-    width: 100%;
-    height: 200px;
-    content: "";
-}
-.bumper:hover::after {
-    opacity: 0.5;
-    transition: 
-        opacity 
-        var(--short-transition);
-}
-.bumper:not(:hover)::after {
-    transition: 
-        opacity 
-        var(--short-transition);
-}
-.bumper > img {
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    filter: blur(5px);
-    mix-blend-mode: luminosity;
-}
-.bumper:hover > img {
-    border: 45px solid var(--primary-color);
-    mix-blend-mode: normal;
-    filter: blur(0);
-    transition: all var(--short-transition);
-}
-.bumper:not(:hover) > img {
-    border: 15px solid transparent;
-    transition: all var(--short-transition);    
+/* image */
+/* .image-container {} */
+.image-container > img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: var(--border-rad-sm);
+    padding: 20px;
 }
 
 
 /* reveal observed aside */
 .reveal {
     opacity: 1;
-    transition: 0.8s ease-out opacity;
+    transition: var(--long-transition) ease-out opacity;
 }
 
 
 /* wiki */
+.wiki {
+    height: 75%;
+}
 .wiki:not(.reveal) {
     opacity: 0;
-    transition: 0.2s opacity;
+    transition: var(--short-transition) opacity;
 }
 
+
 /* mask */
-.img {
-    position: absolute;
-}
-.btm-layer {
+.mask-layer {
     mask-image: url("../mask/mask.png");
     -webkit-mask-image: url("../mask/mask.png");
     mask-size: cover;
@@ -454,7 +389,9 @@ summary:hover {
     mask-position: 0% 0%;
     -webkit-mask-position: 0% 0%;
     opacity: 1;
+    isolation: isolate;
 }
+
 
 /* show observed images */
 .show {
@@ -490,6 +427,9 @@ summary:hover {
 
 /* screen */
 @media screen and (max-width: 1100px) {
+    .block--darkmode {
+        display: none;
+    }
     main {
         grid-template-columns: auto;
         margin: 0 20px;
@@ -507,7 +447,7 @@ summary:hover {
     .text {
         font-size: small;
     }
-    aside > .bumper > img {
+    aside > .image-container > img {
         mix-blend-mode: normal;
         filter: blur(0);
         transition: all var(--short-transition);

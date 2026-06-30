@@ -1,6 +1,5 @@
-const images = document.querySelectorAll(".btm-layer")
+const images = document.querySelectorAll(".mask-layer")
 const aside = document.querySelectorAll("aside")
-// const wiki = document.getElementById("wikiSummary")
 // 
 const imageObserver = new IntersectionObserver((entries)=>{
     for (const entry of entries) {
@@ -21,17 +20,6 @@ const textObserver = new IntersectionObserver((entries)=>{
         }
     }
 },{threshold: 0.2})
-// 
-// const WikiObserver = new MutationObserver((records) => {
-//     records.forEach((mutation) => {
-//         if (mutation.type === 'attributes') {
-//             console.log(mutation.target)
-//             const node = mutation.target
-//         } 
-//     })
-// })
-// WikiObserver.observe(wiki, {attributes: true})
-// WikiObserver.disconnect()
 // 
 for (let elmt of images) {
     imageObserver.observe(elmt)
